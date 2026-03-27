@@ -5,6 +5,10 @@ html {
   text-transform: lowercase;
 }
 
+a, button, [role="button"], [onclick] {
+  cursor: pointer;
+}
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {

@@ -2,7 +2,7 @@
 
 ## Overview
 
-Portfolio personnel one-page stylisé comme un éditeur de code / file explorer. Simple, élégant, noir & blanc.
+Portfolio personnel one-page stylisé comme un éditeur de code / file explorer. Simple, élégant, noir & blanc. Animation d'intro: un MacBook qui s'ouvre au scroll, puis zoom dans l'écran pour révéler le site.
 
 ## Tech Stack
 
@@ -42,6 +42,23 @@ Le site entier ressemble à une fenêtre d'éditeur de code (style VS Code):
 
 - Font monospace: `SF Mono`, `Fira Code`, `Cascadia Code`, `Consolas` (fallback)
 - Taille de base: 13px
+
+## Intro Animation
+
+Animation scroll-driven au chargement de la page, avant le contenu du site:
+
+1. **Bird's eye view** — MacBook fermé vu d'en haut, centré sur fond noir
+2. **Scroll → ouverture** — le lid s'ouvre progressivement, le MacBook pivote pour faire face à l'utilisateur
+3. **Zoom dans l'écran** — on zoom dans l'écran du MacBook qui contient déjà l'interface file explorer
+4. **Transition seamless** — l'écran du MacBook devient le site à 100% du viewport, l'animation est terminée
+
+L'animation doit être fluide et réaliste. Utiliser CSS 3D transforms avec `perspective`, `rotateX`, `transform-origin`. Le MacBook doit être un rendu CSS fidèle (pas d'image). L'intérieur de l'écran contient déjà le vrai contenu du site (titlebar, sidebar, tabs, etc.) visible pendant le zoom.
+
+Techniquement:
+- Section sticky avec `height: ~400vh` pour le scroll space
+- `requestAnimationFrame` ou scroll listener optimisé
+- Easing curves pour des transitions naturelles
+- Une fois l'animation terminée, le scroll continue normalement dans le contenu du site
 
 ## Sections
 
@@ -109,6 +126,7 @@ src/
       layout.tsx          # Layout principal avec providers
       page.tsx            # Page one-page
   components/
+    MacbookIntro.tsx      # Animation d'ouverture du MacBook (scroll-driven)
     Window.tsx            # Container fenêtre (titlebar + layout)
     Titlebar.tsx          # Barre de titre avec dots, toggle langue/theme
     Sidebar.tsx           # File tree navigation

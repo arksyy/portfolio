@@ -1,0 +1,66 @@
+{
+  "Hero": {
+    "name": "Alexandre Roy",
+    "title": "Developer · Québec",
+    "bio": "Computer Science student at Cégep Garneau, passionate about web development and problem-solving. Bilingual French-English with a strong work ethic."
+  },
+  "Projects": {
+    "heading": "Projects",
+    "items": [
+      {
+        "file": "project-01.md",
+        "name": "Example project",
+        "description": "Short description of the project and what it achieves.",
+        "tags": ["React", "Node.js"]
+      },
+      {
+        "file": "project-02.md",
+        "name": "Example project",
+        "description": "Short description of the project and what it achieves.",
+        "tags": ["Java", "SQL"]
+      }
+    ]
+  },
+  "Experience": {
+    "heading": "Experience",
+    "items": [
+      {
+        "date": "2023 — Present",
+        "role": "Dek hockey referee",
+        "place": "DDLC — Québec, QC",
+        "description": "Game officiating, conflict resolution, rule enforcement."
+      },
+      {
+        "date": "Summer 2025",
+        "role": "Camp counselor",
+        "place": "Camp Kéno — Québec, QC",
+        "description": "Support for a youth with special needs, group management."
+      },
+      {
+        "date": "Summer 2024",
+        "role": "Pressure washer",
+        "place": "Qualité Étudiants — Québec, QC",
+        "description": "Residential cleaning, personalized client service."
+      },
+      {
+        "date": "2019 — 2022",
+        "role": "Bakery clerk",
+        "place": "IGA — Québec, QC",
+        "description": "Production, customer service, workspace management."
+      }
+    ]
+  },
+  "Contact": {
+    "heading": "Contact",
+    "email": "alexandre15roy@gmail.com",
+    "downloadCv": "download cv.pdf"
+  },
+  "Sidebar": {
+    "explorer": "EXPLORER"
+  },
+  "StatusBar": {
+    "branch": "main",
+    "encoding": "UTF-8",
+    "fileType": "Markdown"
+  }
+}

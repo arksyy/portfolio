@@ -1,0 +1,66 @@
+{
+  "Hero": {
+    "name": "Alexandre Roy",
+    "title": "Développeur · Québec",
+    "bio": "Étudiant en technique informatique au Cégep Garneau, passionné par le développement web et la résolution de problèmes. Bilingue français-anglais avec une forte éthique de travail."
+  },
+  "Projects": {
+    "heading": "Projets",
+    "items": [
+      {
+        "file": "projet-01.md",
+        "name": "Projet exemple",
+        "description": "Description courte du projet et de ce qu'il accomplit.",
+        "tags": ["React", "Node.js"]
+      },
+      {
+        "file": "projet-02.md",
+        "name": "Projet exemple",
+        "description": "Description courte du projet et de ce qu'il accomplit.",
+        "tags": ["Java", "SQL"]
+      }
+    ]
+  },
+  "Experience": {
+    "heading": "Expérience",
+    "items": [
+      {
+        "date": "2023 — Présent",
+        "role": "Arbitre de dekhockey",
+        "place": "DDLC — Québec, QC",
+        "description": "Arbitrage de parties, résolution de conflits, application des règlements."
+      },
+      {
+        "date": "Été 2025",
+        "role": "Accompagnateur",
+        "place": "Camp Kéno — Québec, QC",
+        "description": "Accompagnement d'un jeune avec des besoins spéciaux, gestion de groupe."
+      },
+      {
+        "date": "Été 2024",
+        "role": "Laveur à pression",
+        "place": "Qualité Étudiants — Québec, QC",
+        "description": "Nettoyage résidentiel, service personnalisé chez les clients."
+      },
+      {
+        "date": "2019 — 2022",
+        "role": "Commis à la boulangerie",
+        "place": "IGA — Québec, QC",
+        "description": "Production, service à la clientèle, gestion de l'espace de travail."
+      }
+    ]
+  },
+  "Contact": {
+    "heading": "Contact",
+    "email": "alexandre15roy@gmail.com",
+    "downloadCv": "télécharger cv.pdf"
+  },
+  "Sidebar": {
+    "explorer": "EXPLORER"
+  },
+  "StatusBar": {
+    "branch": "main",
+    "encoding": "UTF-8",
+    "fileType": "Markdown"
+  }
+}

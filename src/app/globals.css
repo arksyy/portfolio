@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-mono: "SF Mono", "Fira Code", "Cascadia Code", "Consolas", monospace;
+  --color-editor-bg: #0e0e0e;
+  --color-editor-bg-deep: #050505;
+  --color-editor-sidebar: #111111;
+  --color-editor-border: #1a1a1a;
+  --color-editor-text: #d4d4d4;
+  --color-editor-muted: #555555;
+  --color-editor-faint: #333333;
+  --color-syntax-comment: #444444;
+  --color-syntax-string: #a8d4a2;
+  --color-syntax-property: #7ab0df;
+  --color-syntax-keyword: #c9a0dc;
+  --color-syntax-type: #e0c285;
+}

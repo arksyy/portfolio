@@ -1,5 +1,4 @@
 import { ThemeToggle } from "./ThemeToggle";
-import { LocaleSwitcher } from "./LocaleSwitcher";
 
 export function Titlebar() {
   return (
@@ -8,7 +7,6 @@ export function Titlebar() {
         alexandre roy
       </div>
       <div className="flex items-center gap-3">
-        <LocaleSwitcher />
         <ThemeToggle />
       </div>
     </div>

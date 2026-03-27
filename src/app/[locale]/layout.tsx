@@ -3,7 +3,6 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Providers } from "@/components/Providers";
-import { EditorShell } from "@/components/EditorShell";
 import "../globals.css";
 
 export const metadata: Metadata = {
@@ -32,9 +31,7 @@ export default async function LocaleLayout({
     <html lang={locale} suppressHydrationWarning>
       <body className="antialiased">
         <NextIntlClientProvider>
-          <Providers>
-            <EditorShell>{children}</EditorShell>
-          </Providers>
+          <Providers>{children}</Providers>
         </NextIntlClientProvider>
       </body>
     </html>

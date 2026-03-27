@@ -1,18 +1,17 @@
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
 
 const projects = [
-  { slug: "canopia", key: "canopia" },
-  { slug: "crm", key: "crm" },
-  { slug: "entreprise", key: "entreprise" },
+  { key: "canopia" },
+  { key: "crm" },
+  { key: "entreprise" },
 ];
 
 export function Projects() {
   const t = useTranslations("Projects");
 
   return (
-    <section className="pt-12 pb-20">
-      <h2 className="text-xs tracking-widest text-editor-faint uppercase mb-6">
+    <section id="projets" className="py-16">
+      <h2 className="text-xs tracking-widest text-editor-faint uppercase mb-8">
         {t("heading")}
       </h2>
       <div className="space-y-4">
@@ -22,10 +21,9 @@ export function Projects() {
           const tags = t.raw(`${project.key}.tags`) as string[];
 
           return (
-            <Link
-              key={project.slug}
-              href={`/projects/${project.slug}`}
-              className="block border border-editor-border rounded-lg p-5 hover:border-editor-muted transition-colors"
+            <div
+              key={project.key}
+              className="border border-editor-border rounded-lg p-5 hover:border-editor-muted transition-colors"
             >
               <h3 className="text-sm font-semibold text-editor-text">
                 {name}
@@ -43,7 +41,7 @@ export function Projects() {
                   </span>
                 ))}
               </div>
-            </Link>
+            </div>
           );
         })}
       </div>

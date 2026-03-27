@@ -10,7 +10,7 @@ export function Experience() {
   }>;
 
   return (
-    <section id="section-experience" className="py-12">
+    <section id="experience" className="py-16">
       <h2 className="text-xs tracking-widest text-editor-faint uppercase mb-6">
         {t("heading")}
       </h2>

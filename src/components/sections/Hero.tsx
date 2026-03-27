@@ -4,7 +4,7 @@ export function Hero() {
   const t = useTranslations("Hero");
 
   return (
-    <section id="section-hero" className="pt-16 pb-12">
+    <section id="about" className="pt-20 pb-12">
       <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-editor-text">
         {t("name")}
       </h1>

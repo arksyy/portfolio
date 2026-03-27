@@ -1,33 +1,29 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/navigation";
 
 const files = [
-  { id: "hero", label: "README.md", icon: "◇", indent: 1 },
-  { id: "hero", label: "about.md", icon: "◇", indent: 1 },
-  { id: "projects", label: "projects/", icon: "▸", indent: 1, isFolder: true },
-  { id: "experience", label: "experience.md", icon: "◇", indent: 1 },
-  { id: "contact", label: "contact.json", icon: "◇", indent: 1 },
-  { id: "cv", label: "cv.pdf", icon: "↓", indent: 1, isSeparated: true },
+  { href: "/", label: "README.md", icon: "◇" },
+  { href: "/", label: "about.md", icon: "◇" },
+  { href: "/projects", label: "projects/", icon: "▸" },
+  { href: "/experience", label: "experience.md", icon: "◇" },
+  { href: "/contact", label: "contact.json", icon: "◇" },
+  { href: "/cv.pdf", label: "cv.pdf", icon: "↓", external: true, separated: true },
 ];
 
 interface SidebarProps {
-  activeSection: string;
-  onNavigate: (id: string) => void;
   open?: boolean;
   onClose?: () => void;
 }
 
-export function Sidebar({ activeSection, onNavigate, open, onClose }: SidebarProps) {
+export function Sidebar({ open, onClose }: SidebarProps) {
   const t = useTranslations("Sidebar");
+  const pathname = usePathname();
 
-  function handleClick(id: string) {
-    if (id === "cv") {
-      window.open("/cv.pdf", "_blank");
-    } else {
-      onNavigate(id);
-    }
-    if (onClose) onClose();
+  function isActive(href: string) {
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(href);
   }
 
   const sidebarContent = (
@@ -40,31 +36,43 @@ export function Sidebar({ activeSection, onNavigate, open, onClose }: SidebarPro
           <span className="text-xs">▾</span>
           <span>~/alexandre-roy</span>
         </div>
-        {files.map((file) => (
-          <button
-            key={file.id}
-            onClick={() => handleClick(file.id)}
-            className={`w-full text-left px-4 py-1.5 flex items-center gap-2 transition-colors hover:bg-editor-border/50 ${
-              file.indent === 1 ? "pl-8" : ""
-            } ${
-              activeSection === file.id
-                ? "bg-editor-border/50 text-editor-text"
-                : "text-editor-muted"
-            } ${file.isSeparated ? "mt-2 pt-2 border-t border-editor-border" : ""}`}
-          >
-            <span className="w-4 text-center text-xs">{file.icon}</span>
-            <span>{file.label}</span>
-          </button>
-        ))}
+        {files.map((file) =>
+          file.external ? (
+            <a
+              key={file.label}
+              href={file.href}
+              target="_blank"
+              onClick={onClose}
+              className={`w-full text-left pl-8 px-4 py-1.5 flex items-center gap-2 transition-colors hover:bg-editor-border/50 text-editor-muted ${
+                file.separated ? "mt-2 pt-2 border-t border-editor-border" : ""
+              }`}
+            >
+              <span className="w-4 text-center text-xs">{file.icon}</span>
+              <span>{file.label}</span>
+            </a>
+          ) : (
+            <Link
+              key={file.label}
+              href={file.href}
+              onClick={onClose}
+              className={`w-full text-left pl-8 px-4 py-1.5 flex items-center gap-2 transition-colors hover:bg-editor-border/50 ${
+                isActive(file.href)
+                  ? "bg-editor-border/50 text-editor-text"
+                  : "text-editor-muted"
+              }`}
+            >
+              <span className="w-4 text-center text-xs">{file.icon}</span>
+              <span>{file.label}</span>
+            </Link>
+          )
+        )}
       </div>
     </div>
   );
 
   return (
     <>
-      {/* Desktop */}
       <div className="hidden md:block h-full">{sidebarContent}</div>
-      {/* Mobile overlay */}
       {open && (
         <div className="md:hidden fixed inset-y-0 left-0 z-40">
           {sidebarContent}

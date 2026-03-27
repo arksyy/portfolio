@@ -3,11 +3,12 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Providers } from "@/components/Providers";
+import { EditorShell } from "@/components/EditorShell";
 import "../globals.css";
 
 export const metadata: Metadata = {
   title: "alexandre roy",
-  description: "Développeur · Québec",
+  description: "développeur · québec",
 };
 
 export function generateStaticParams() {
@@ -31,7 +32,9 @@ export default async function LocaleLayout({
     <html lang={locale} suppressHydrationWarning>
       <body className="antialiased">
         <NextIntlClientProvider>
-          <Providers>{children}</Providers>
+          <Providers>
+            <EditorShell>{children}</EditorShell>
+          </Providers>
         </NextIntlClientProvider>
       </body>
     </html>

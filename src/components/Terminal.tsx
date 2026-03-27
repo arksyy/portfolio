@@ -177,9 +177,9 @@ export function Terminal() {
       s.isAnimating = true;
       const bootData = [
         `${t("Terminal.boot1")}`,
-        `${t("Terminal.boot2")} <span class="text-syntax-string">${t("Terminal.ok")}</span>`,
-        `${t("Terminal.boot3")} <span class="text-syntax-string">${t("Terminal.ok")}</span>`,
-        `${t("Terminal.boot4")} <span class="text-syntax-string">${t("Terminal.username")}</span>`,
+        `${t("Terminal.boot2")} <span class="terminal-string">${t("Terminal.ok")}</span>`,
+        `${t("Terminal.boot3")} <span class="terminal-string">${t("Terminal.ok")}</span>`,
+        `${t("Terminal.boot4")} <span class="terminal-string">${t("Terminal.username")}</span>`,
       ];
 
       for (const line of bootData) {

@@ -47,8 +47,8 @@ Le site entier ressemble à une fenêtre d'éditeur de code (style VS Code):
 
 Animation scroll-driven au chargement de la page, avant le contenu du site:
 
-1. **Bird's eye view** — MacBook fermé vu d'en haut, centré sur fond noir
-2. **Scroll → ouverture** — le lid s'ouvre progressivement, le MacBook pivote pour faire face à l'utilisateur
+1. **Bird's eye view** — MacBook fermé vu d'en haut, centré sur fond noir. Utiliser une vraie photo du MacBook de l'utilisateur pour le lid fermé. Nom "ALEXANDRE ROY" en grosses lettres au-dessus du MacBook.
+2. **Scroll → ouverture** — le lid s'ouvre progressivement, le MacBook pivote pour faire face à l'utilisateur. Le nom disparaît/fade out pendant l'ouverture.
 3. **Zoom dans l'écran** — on zoom dans l'écran du MacBook qui contient déjà l'interface file explorer
 4. **Transition seamless** — l'écran du MacBook devient le site à 100% du viewport, l'animation est terminée
 

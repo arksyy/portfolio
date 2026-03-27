@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 
@@ -13,9 +12,6 @@ const projects = [
 export function Sidebar() {
   const t = useTranslations("Sidebar");
   const pathname = usePathname();
-  const [projectsOpen, setProjectsOpen] = useState(
-    pathname.startsWith("/projects")
-  );
 
   function isActive(href: string) {
     if (href === "/") return pathname === "/";
@@ -57,24 +53,19 @@ export function Sidebar() {
           <span>about.md</span>
         </Link>
 
-        {/* projects/ folder */}
-        <button
-          onClick={() => setProjectsOpen((prev) => !prev)}
-          className={`w-full text-left pl-8 py-1.5 flex items-center gap-2 transition-colors hover:bg-editor-border/50 ${
+        {/* projects/ folder — always open */}
+        <div
+          className={`w-full text-left pl-8 py-1.5 flex items-center gap-2 ${
             pathname.startsWith("/projects")
               ? "text-editor-text"
               : "text-editor-muted"
           }`}
         >
-          <span className="w-4 text-center text-xs">
-            {projectsOpen ? "▾" : "▸"}
-          </span>
+          <span className="w-4 text-center text-xs">▾</span>
           <span>projects/</span>
-        </button>
+        </div>
 
-        {/* project sub-items */}
-        {projectsOpen &&
-          projects.map((project) => (
+        {projects.map((project) => (
             <Link
               key={project.slug}
               href={`/projects/${project.slug}`}
@@ -88,7 +79,7 @@ export function Sidebar() {
               <span className="w-4 text-center text-xs">◇</span>
               <span>{project.label}</span>
             </Link>
-          ))}
+        ))}
 
         {/* experience.md */}
         <Link

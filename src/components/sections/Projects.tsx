@@ -10,11 +10,11 @@ export function Projects() {
   const t = useTranslations("Projects");
 
   return (
-    <section id="projets" className="py-16">
-      <h2 className="text-xs tracking-widest text-editor-faint uppercase mb-8">
-        {t("heading")}
-      </h2>
-      <div className="space-y-4">
+    <section id="projets" className="py-8">
+      <div className="text-editor-muted mb-4">
+        <span className="text-syntax-keyword">$</span> ls projets/
+      </div>
+      <div className="space-y-0">
         {projects.map((project) => {
           const name = t(`${project.key}.name`);
           const description = t(`${project.key}.description`);
@@ -23,19 +23,20 @@ export function Projects() {
           return (
             <div
               key={project.key}
-              className="border border-editor-border rounded-lg p-5 hover:border-editor-muted transition-colors"
+              className="py-3 border-b border-editor-border last:border-none"
             >
-              <h3 className="text-sm font-semibold text-editor-text">
+              <h3 className="text-[14px] text-editor-text font-semibold">
+                <span className="text-syntax-property mr-2">→</span>
                 {name}
               </h3>
-              <p className="text-editor-muted text-xs mt-1.5 leading-relaxed">
+              <p className="text-editor-faint text-[12px] mt-1 pl-5">
                 {description}
               </p>
-              <div className="flex gap-2 mt-3">
+              <div className="flex gap-2 mt-2 pl-5">
                 {tags.map((tag) => (
                   <span
                     key={tag}
-                    className="text-[10px] text-editor-faint bg-editor-sidebar px-2.5 py-0.5 rounded-full"
+                    className="text-[10px] text-editor-faint bg-editor-sidebar px-2 py-0.5 rounded"
                   >
                     {tag}
                   </span>

@@ -6,34 +6,42 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-editor-bg font-mono text-[13px]">
-      {/* Simple nav */}
-      <nav className="sticky top-0 z-50 flex items-center justify-between px-6 md:px-12 py-4 bg-editor-bg/80 backdrop-blur-md">
-        <span className="text-sm text-editor-text font-semibold">
-          alexandre roy
+    <div className="min-h-screen bg-editor-bg font-mono text-[14px]">
+      {/* Nav as prompt */}
+      <nav className="sticky top-0 z-50 flex items-center gap-6 px-8 py-4 bg-editor-bg/85 backdrop-blur-md border-b border-editor-border">
+        <span>
+          <span className="text-syntax-property">~/alexandre-roy</span>{" "}
+          <span className="text-syntax-keyword">❯</span>
         </span>
-        <div className="flex items-center gap-6">
-          <a href="#about" className="text-xs text-editor-muted hover:text-editor-text transition-colors">
-            à propos
-          </a>
-          <a href="#projets" className="text-xs text-editor-muted hover:text-editor-text transition-colors">
-            projets
-          </a>
-          <a href="#experience" className="text-xs text-editor-muted hover:text-editor-text transition-colors">
-            expérience
-          </a>
-          <a href="#contact" className="text-xs text-editor-muted hover:text-editor-text transition-colors">
-            contact
-          </a>
+        <a href="#about" className="text-editor-faint hover:text-editor-text transition-colors text-[13px]">
+          à propos
+        </a>
+        <a href="#projets" className="text-editor-faint hover:text-editor-text transition-colors text-[13px]">
+          projets
+        </a>
+        <a href="#experience" className="text-editor-faint hover:text-editor-text transition-colors text-[13px]">
+          expérience
+        </a>
+        <a href="#contact" className="text-editor-faint hover:text-editor-text transition-colors text-[13px]">
+          contact
+        </a>
+        <div className="ml-auto">
           <ThemeToggle />
         </div>
       </nav>
 
-      <main className="max-w-2xl mx-auto px-6 md:px-12 pb-20">
+      <main className="max-w-2xl mx-auto px-8 pb-20">
         <Hero />
         <Projects />
         <Experience />
         <Contact />
+
+        {/* Idle prompt at bottom */}
+        <div className="mt-8 text-editor-faint">
+          <span className="text-syntax-property">~</span>{" "}
+          <span className="text-syntax-keyword">❯</span>{" "}
+          <span className="inline-block w-2 h-[14px] bg-editor-text align-text-bottom animate-pulse" />
+        </div>
       </main>
     </div>
   );

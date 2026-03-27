@@ -10,25 +10,22 @@ export function Experience() {
   }>;
 
   return (
-    <section id="experience" className="py-16">
-      <h2 className="text-xs tracking-widest text-editor-faint uppercase mb-6">
-        {t("heading")}
-      </h2>
-      <div className="space-y-6">
+    <section id="experience" className="py-8">
+      <div className="text-editor-muted mb-4">
+        <span className="text-syntax-keyword">$</span> cat expérience.md
+      </div>
+      <div className="space-y-3">
         {items.map((item, i) => (
-          <div key={i} className="flex gap-6">
-            <div className="w-28 shrink-0 text-xs text-editor-faint pt-0.5">
+          <div key={i} className="flex gap-5">
+            <div className="w-24 shrink-0 text-[12px] text-editor-faint pt-0.5">
               {item.date}
             </div>
             <div>
-              <div className="text-sm font-semibold text-editor-text">
+              <div className="text-[13px] font-semibold text-editor-text">
                 {item.role}
               </div>
-              <div className="text-xs text-editor-muted mt-0.5">
+              <div className="text-[12px] text-editor-faint mt-0.5">
                 {item.place}
-              </div>
-              <div className="text-xs text-editor-muted mt-2 leading-relaxed">
-                {item.description}
               </div>
             </div>
           </div>

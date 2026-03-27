@@ -5,23 +5,23 @@ export function Contact() {
 
   const links = [
     { label: t("email"), href: `mailto:${t("email")}` },
-    { label: "linkedin", href: "#" },
     { label: "github", href: "#" },
+    { label: "linkedin", href: "#" },
     { label: `↓ ${t("downloadCv")}`, href: "/cv.pdf" },
   ];
 
   return (
-    <section id="contact" className="py-16">
-      <h2 className="text-xs tracking-widest text-editor-faint uppercase mb-6">
-        {t("heading")}
-      </h2>
-      <div className="flex flex-wrap gap-6">
+    <section id="contact" className="py-8">
+      <div className="text-editor-muted mb-4">
+        <span className="text-syntax-keyword">$</span> cat contact.json
+      </div>
+      <div className="flex flex-wrap gap-5">
         {links.map((link) => (
           <a
             key={link.label}
             href={link.href}
             target={link.href === "/cv.pdf" ? "_blank" : undefined}
-            className="text-sm text-editor-muted hover:text-editor-text transition-colors"
+            className="text-[13px] text-editor-muted hover:text-editor-text transition-colors"
           >
             {link.label}
           </a>

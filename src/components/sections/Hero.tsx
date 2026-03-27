@@ -4,14 +4,14 @@ export function Hero() {
   const t = useTranslations("Hero");
 
   return (
-    <section id="about" className="pt-20 pb-12">
-      <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-editor-text">
+    <section id="about" className="pt-12 pb-8">
+      <h1 className="text-2xl md:text-3xl font-bold text-editor-text">
         {t("name")}
       </h1>
-      <p className="text-editor-muted mt-2 text-sm">
+      <p className="text-editor-muted mt-2 text-[13px]">
         {t("title")}
       </p>
-      <p className="text-editor-muted mt-6 text-sm leading-relaxed max-w-lg">
+      <p className="text-editor-muted mt-5 text-[13px] leading-relaxed max-w-lg">
         {t("bio")}
       </p>
     </section>

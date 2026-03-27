@@ -42,7 +42,6 @@ export function Terminal({ open }: TerminalProps) {
           {/* Bar */}
           <div
             className="flex items-center gap-2 px-4 py-3"
-            style={{ background: "rgba(22, 24, 31, 0.8)" }}
           >
             <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
             <div className="w-3 h-3 rounded-full bg-[#febc2e]" />

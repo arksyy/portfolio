@@ -6,7 +6,7 @@ import { Providers } from "@/components/Providers";
 import "../globals.css";
 
 export const metadata: Metadata = {
-  title: "Alexandre Roy — Portfolio",
+  title: "alexandre roy",
   description: "Développeur · Québec",
 };
 

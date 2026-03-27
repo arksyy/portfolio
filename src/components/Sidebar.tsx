@@ -31,7 +31,7 @@ export function Sidebar({ activeSection, onNavigate, open, onClose }: SidebarPro
   }
 
   const sidebarContent = (
-    <div className="w-[200px] bg-editor-sidebar border-r border-editor-border py-3 flex-shrink-0">
+    <div className="w-[200px] bg-editor-sidebar border-r border-editor-border py-3 flex-shrink-0 h-full">
       <div className="px-4 pb-3 text-[10px] tracking-widest text-editor-faint">
         {t("explorer")}
       </div>

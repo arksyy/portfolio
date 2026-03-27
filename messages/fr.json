@@ -63,5 +63,16 @@
     "branch": "main",
     "encoding": "UTF-8",
     "fileType": "Markdown"
+  },
+  "Terminal": {
+    "boot1": "initializing system...",
+    "boot2": "loading modules...",
+    "boot3": "mounting /dev/portfolio...",
+    "boot4": "starting session for",
+    "ok": "ok",
+    "username": "alexandre-roy",
+    "hint": "veuillez appuyer sur entrée",
+    "promptPrefix": "~/alexandre-roy",
+    "commands": ["whoami", "ls ~/projets/", "cat experience.md", "cat contact.json"]
   }
 }

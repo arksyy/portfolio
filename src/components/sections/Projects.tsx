@@ -1,5 +1,4 @@
 import { useTranslations } from "next-intl";
-import { Line } from "./Line";
 
 export function Projects() {
   const t = useTranslations("Projects");
@@ -11,31 +10,27 @@ export function Projects() {
   }>;
 
   return (
-    <section id="section-projects" className="px-6 py-4">
-      <Line num={8}>
-        <span className="text-syntax-comment">## {t("heading")}</span>
-      </Line>
-      <Line num={9} />
-      <div className="space-y-3 ml-10 my-3">
+    <section id="section-projects" className="py-12">
+      <h2 className="text-xs tracking-widest text-editor-faint uppercase mb-6">
+        {t("heading")}
+      </h2>
+      <div className="space-y-4">
         {items.map((item, i) => (
           <div
             key={i}
-            className="border border-editor-border rounded-md p-4 hover:border-editor-muted transition-colors cursor-pointer"
+            className="border border-editor-border rounded-lg p-5 hover:border-editor-muted transition-colors cursor-pointer"
           >
-            <div className="flex items-center gap-2 mb-2">
-              <span className="text-editor-muted text-xs">◇</span>
-              <span className="font-semibold text-editor-text">
-                {item.file}
-              </span>
-            </div>
-            <p className="text-editor-muted text-xs leading-relaxed">
+            <h3 className="text-sm font-semibold text-editor-text">
+              {item.name}
+            </h3>
+            <p className="text-editor-muted text-xs mt-1.5 leading-relaxed">
               {item.description}
             </p>
-            <div className="flex gap-1.5 mt-3">
+            <div className="flex gap-2 mt-3">
               {item.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-[10px] text-editor-faint bg-editor-sidebar px-2 py-0.5 rounded"
+                  className="text-[10px] text-editor-faint bg-editor-sidebar px-2.5 py-0.5 rounded-full"
                 >
                   {tag}
                 </span>
@@ -44,10 +39,6 @@ export function Projects() {
           </div>
         ))}
       </div>
-      <Line num={10} />
-      <Line num={11}>
-        <span className="text-syntax-comment">---</span>
-      </Line>
     </section>
   );
 }

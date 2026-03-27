@@ -29,18 +29,6 @@ export function Sidebar() {
           <span>~/alexandre-roy</span>
         </div>
 
-        {/* README.md */}
-        <Link
-          href="/"
-
-          className={`w-full text-left pl-8 py-1.5 flex items-center gap-2 transition-colors hover:bg-editor-border/50 ${
-            isActive("/") ? "bg-editor-border/50 text-editor-text" : "text-editor-muted"
-          }`}
-        >
-          <span className="w-4 text-center text-xs">◇</span>
-          <span>README.md</span>
-        </Link>
-
         {/* about.md */}
         <Link
           href="/about"

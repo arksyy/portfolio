@@ -3,7 +3,6 @@
 import { Link, usePathname } from "@/i18n/navigation";
 
 const allTabs: Record<string, string> = {
-  "/": "README.md",
   "/about": "about.md",
   "/projects": "projects/",
   "/projects/canopia": "canopia.md",

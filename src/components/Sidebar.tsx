@@ -43,10 +43,10 @@ export function Sidebar() {
 
         {/* about.md */}
         <Link
-          href="/"
+          href="/about"
 
           className={`w-full text-left pl-8 py-1.5 flex items-center gap-2 transition-colors hover:bg-editor-border/50 ${
-            isActive("/") ? "bg-editor-border/50 text-editor-text" : "text-editor-muted"
+            isActive("/about") ? "bg-editor-border/50 text-editor-text" : "text-editor-muted"
           }`}
         >
           <span className="w-4 text-center text-xs">◇</span>

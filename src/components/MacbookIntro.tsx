@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 interface MacbookIntroProps {
   children: React.ReactNode;
@@ -11,64 +11,78 @@ export function MacbookIntro({ children }: MacbookIntroProps) {
   const macbookRef = useRef<HTMLDivElement>(null);
   const lidRef = useRef<HTMLDivElement>(null);
   const nameRef = useRef<HTMLDivElement>(null);
+  const lidBackRef = useRef<HTMLDivElement>(null);
+  const lidFrontRef = useRef<HTMLDivElement>(null);
   const [settled, setSettled] = useState(false);
 
-  useEffect(() => {
-    function onScroll() {
-      const scene = sceneRef.current;
-      const macbook = macbookRef.current;
-      const lid = lidRef.current;
-      const name = nameRef.current;
-      if (!scene || !macbook || !lid || !name) return;
+  const onScroll = useCallback(() => {
+    const scene = sceneRef.current;
+    const macbook = macbookRef.current;
+    const lid = lidRef.current;
+    const name = nameRef.current;
+    const lidBack = lidBackRef.current;
+    const lidFront = lidFrontRef.current;
+    if (!scene || !macbook || !lid || !name || !lidBack || !lidFront) return;
 
-      const scrollTop = window.scrollY;
-      const sceneHeight = scene.offsetHeight - window.innerHeight;
-      const progress = Math.min(Math.max(scrollTop / sceneHeight, 0), 1);
+    const scrollTop = window.scrollY;
+    const sceneHeight = scene.offsetHeight - window.innerHeight;
+    if (sceneHeight <= 0) return;
+    const progress = Math.min(Math.max(scrollTop / sceneHeight, 0), 1);
 
-      const ease = (t: number) =>
-        t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    const ease = (t: number) =>
+      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
-      // Toggle settled state for showing real content vs mini preview
-      if (progress >= 0.92 && !settled) {
-        setSettled(true);
-      } else if (progress < 0.88 && settled) {
-        setSettled(false);
-      }
+    let lidAngle = 0;
 
-      if (progress < 0.4) {
-        // Phase 1: Bird's eye → tilt toward viewer, begin opening lid
-        const p = ease(progress / 0.4);
-        const rotX = 85 - p * 55;
-        const lidAngle = p * 70;
-        const scale = 0.45 + p * 0.15;
-        const nameOpacity = 1 - p * 1.5;
+    if (progress < 0.4) {
+      const p = ease(progress / 0.4);
+      const rotX = 85 - p * 55;
+      lidAngle = p * 70;
+      const scale = 0.45 + p * 0.15;
+      const nameOpacity = 1 - p * 1.5;
 
-        macbook.style.transform = `rotateX(${rotX}deg) scale(${scale})`;
-        lid.style.transform = `rotateX(${lidAngle}deg)`;
-        name.style.opacity = `${Math.max(0, nameOpacity)}`;
-        name.style.transform = `translateY(${-p * 40}px)`;
-      } else if (progress < 0.75) {
-        // Phase 2: Face camera, finish opening lid
-        const p = ease((progress - 0.4) / 0.35);
-        const rotX = 30 - p * 30;
-        const lidAngle = 70 + p * 55;
-        const scale = 0.6 + p * 0.4;
+      macbook.style.transform = `rotateX(${rotX}deg) scale(${scale})`;
+      lid.style.transform = `rotateX(${lidAngle}deg)`;
+      name.style.opacity = `${Math.max(0, nameOpacity)}`;
+      name.style.transform = `translateY(${-p * 40}px)`;
+    } else if (progress < 0.75) {
+      const p = ease((progress - 0.4) / 0.35);
+      const rotX = 30 - p * 30;
+      lidAngle = 70 + p * 55;
+      const scale = 0.6 + p * 0.4;
 
-        macbook.style.transform = `rotateX(${rotX}deg) scale(${scale})`;
-        lid.style.transform = `rotateX(${lidAngle}deg)`;
-        name.style.opacity = "0";
-      } else {
-        // Phase 3: Settle flat
-        macbook.style.transform = `rotateX(0deg) scale(1)`;
-        lid.style.transform = `rotateX(125deg)`;
-        name.style.opacity = "0";
-      }
+      macbook.style.transform = `rotateX(${rotX}deg) scale(${scale})`;
+      lid.style.transform = `rotateX(${lidAngle}deg)`;
+      name.style.opacity = "0";
+    } else {
+      lidAngle = 125;
+      macbook.style.transform = `rotateX(0deg) scale(1)`;
+      lid.style.transform = `rotateX(125deg)`;
+      name.style.opacity = "0";
     }
 
+    // Show front face (screen) when lid opens past 90°, hide back face
+    if (lidAngle > 90) {
+      lidBack.style.display = "none";
+      lidFront.style.display = "block";
+    } else {
+      lidBack.style.display = "flex";
+      lidFront.style.display = "none";
+    }
+
+    // Toggle real content vs mini preview
+    if (progress >= 0.92 && !settled) {
+      setSettled(true);
+    } else if (progress < 0.88 && settled) {
+      setSettled(false);
+    }
+  }, [settled]);
+
+  useEffect(() => {
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
-  }, [settled]);
+  }, [onScroll]);
 
   return (
     <div ref={sceneRef} className="relative" style={{ height: "400vh" }}>
@@ -76,7 +90,7 @@ export function MacbookIntro({ children }: MacbookIntroProps) {
         className="sticky top-0 h-screen flex items-center justify-center overflow-hidden bg-black"
         style={{ perspective: "1800px" }}
       >
-        {/* Name above MacBook */}
+        {/* Name */}
         <div
           ref={nameRef}
           className="absolute top-[10%] text-center z-10 pointer-events-none"
@@ -113,12 +127,12 @@ export function MacbookIntro({ children }: MacbookIntroProps) {
               transformStyle: "preserve-3d",
             }}
           >
-            {/* Lid back */}
+            {/* Lid BACK (Apple logo side — visible when closed) */}
             <div
+              ref={lidBackRef}
               className="absolute inset-0 rounded-t-2xl flex items-center justify-center"
               style={{
                 background: "linear-gradient(0deg, #2a2a2a, #333 50%, #2a2a2a)",
-                backfaceVisibility: "hidden",
               }}
             >
               <svg
@@ -132,13 +146,13 @@ export function MacbookIntro({ children }: MacbookIntroProps) {
               </svg>
             </div>
 
-            {/* Lid front (screen side) */}
+            {/* Lid FRONT (screen side — visible when open) */}
             <div
+              ref={lidFrontRef}
               className="absolute inset-0 rounded-t-2xl p-[6px] pb-[10px]"
               style={{
                 background: "#111",
-                transform: "rotateY(180deg)",
-                backfaceVisibility: "hidden",
+                display: "none",
               }}
             >
               <div className="w-full h-full rounded-t-xl bg-editor-bg overflow-hidden relative">
@@ -147,15 +161,8 @@ export function MacbookIntro({ children }: MacbookIntroProps) {
                 {/* Camera dot */}
                 <div className="absolute top-[4px] left-1/2 -translate-x-1/2 w-[5px] h-[5px] rounded-full bg-[#1a1a1a] border border-[#333] z-30" />
 
-                {/* Content inside screen */}
                 <div className="h-full pt-[16px]">
-                  {settled ? (
-                    // Real site content
-                    children
-                  ) : (
-                    // Mini preview during animation
-                    <MiniPreview />
-                  )}
+                  {settled ? children : <MiniPreview />}
                 </div>
               </div>
             </div>
@@ -171,12 +178,10 @@ export function MacbookIntro({ children }: MacbookIntroProps) {
               transformStyle: "preserve-3d",
             }}
           >
-            {/* Touchbar */}
             <div
               className="absolute top-[3%] left-[15%] right-[15%] h-[3%] rounded-full"
               style={{ background: "#111" }}
             />
-            {/* Keyboard */}
             <div
               className="absolute top-[8%] left-[6%] right-[6%] bottom-[20%] grid gap-[3px]"
               style={{
@@ -192,7 +197,6 @@ export function MacbookIntro({ children }: MacbookIntroProps) {
                 />
               ))}
             </div>
-            {/* Trackpad */}
             <div
               className="absolute bottom-[5%] left-1/2 -translate-x-1/2 rounded-md"
               style={{

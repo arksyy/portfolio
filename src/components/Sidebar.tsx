@@ -14,13 +14,24 @@ const files = [
 interface SidebarProps {
   activeSection: string;
   onNavigate: (id: string) => void;
+  open?: boolean;
+  onClose?: () => void;
 }
 
-export function Sidebar({ activeSection, onNavigate }: SidebarProps) {
+export function Sidebar({ activeSection, onNavigate, open, onClose }: SidebarProps) {
   const t = useTranslations("Sidebar");
 
-  return (
-    <div className="w-[200px] bg-editor-sidebar border-r border-editor-border py-3 flex-shrink-0 hidden md:block">
+  function handleNavigate(id: string) {
+    if (id === "cv") {
+      window.open("/cv.pdf", "_blank");
+    } else {
+      onNavigate(id);
+    }
+    if (onClose) onClose();
+  }
+
+  const sidebarContent = (
+    <div className="w-[200px] bg-editor-sidebar border-r border-editor-border py-3 flex-shrink-0">
       <div className="px-4 pb-3 text-[10px] tracking-widest text-editor-faint">
         {t("explorer")}
       </div>
@@ -32,13 +43,7 @@ export function Sidebar({ activeSection, onNavigate }: SidebarProps) {
         {files.map((file) => (
           <button
             key={file.id}
-            onClick={() => {
-              if (file.id === "cv") {
-                window.open("/cv.pdf", "_blank");
-              } else {
-                onNavigate(file.id);
-              }
-            }}
+            onClick={() => handleNavigate(file.id)}
             className={`w-full text-left px-4 py-1.5 flex items-center gap-2 transition-colors hover:bg-editor-border/50 ${
               file.indent === 1 ? "pl-8" : ""
             } ${
@@ -53,5 +58,21 @@ export function Sidebar({ activeSection, onNavigate }: SidebarProps) {
         ))}
       </div>
     </div>
+  );
+
+  return (
+    <>
+      {/* Desktop sidebar */}
+      <div className="hidden md:block">
+        {sidebarContent}
+      </div>
+
+      {/* Mobile sidebar overlay */}
+      {open && (
+        <div className="md:hidden fixed inset-y-0 left-0 z-40">
+          {sidebarContent}
+        </div>
+      )}
+    </>
   );
 }

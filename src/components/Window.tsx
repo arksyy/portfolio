@@ -12,6 +12,7 @@ interface WindowProps {
 
 export function Window({ children }: WindowProps) {
   const [activeSection, setActiveSection] = useState("hero");
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
 
   function handleNavigate(id: string) {
@@ -51,7 +52,39 @@ export function Window({ children }: WindowProps) {
     <div className="h-screen flex flex-col bg-editor-bg border border-editor-border rounded-lg overflow-hidden font-mono text-[13px]">
       <Titlebar />
       <div className="flex flex-1 overflow-hidden">
-        <Sidebar activeSection={activeSection} onNavigate={handleNavigate} />
+        {/* Mobile hamburger button */}
+        <button
+          className="md:hidden absolute top-10 left-2 z-50 p-1.5 rounded text-editor-muted hover:text-editor-text hover:bg-editor-border/50 transition-colors"
+          onClick={() => setSidebarOpen((prev) => !prev)}
+          aria-label="Toggle sidebar"
+        >
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="currentColor"
+          >
+            <rect x="1" y="3" width="14" height="1.5" rx="0.75" />
+            <rect x="1" y="7.25" width="14" height="1.5" rx="0.75" />
+            <rect x="1" y="11.5" width="14" height="1.5" rx="0.75" />
+          </svg>
+        </button>
+
+        <Sidebar
+          activeSection={activeSection}
+          onNavigate={handleNavigate}
+          open={sidebarOpen}
+          onClose={() => setSidebarOpen(false)}
+        />
+
+        {/* Mobile overlay backdrop */}
+        {sidebarOpen && (
+          <div
+            className="md:hidden fixed inset-0 z-30 bg-black/50"
+            onClick={() => setSidebarOpen(false)}
+          />
+        )}
+
         <div className="flex flex-1 flex-col overflow-hidden">
           <Tabs activeSection={activeSection} />
           <div className="flex-1 overflow-hidden">

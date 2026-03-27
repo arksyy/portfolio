@@ -109,8 +109,8 @@ export function MacbookIntro({ children }: MacbookIntroProps) {
               ref={lidRef}
               className="absolute bottom-full left-0 w-full"
               style={{
-                width: "500px",
-                height: "340px",
+                width: "clamp(280px, 50vw, 500px)",
+                height: "clamp(190px, 34vw, 340px)",
                 transformOrigin: "bottom center",
                 transform: "rotateX(0deg)",
                 transformStyle: "preserve-3d",
@@ -195,8 +195,8 @@ export function MacbookIntro({ children }: MacbookIntroProps) {
             <div
               className="relative rounded-b-xl"
               style={{
-                width: "500px",
-                height: "320px",
+                width: "clamp(280px, 50vw, 500px)",
+                height: "clamp(179px, 32vw, 320px)",
                 background: "linear-gradient(180deg, #2a2a2a, #1a1a1a)",
                 transformStyle: "preserve-3d",
               }}

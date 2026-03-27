@@ -1,7 +1,12 @@
 import { ThemeToggle } from "./ThemeToggle";
 import { LocaleSwitcher } from "./LocaleSwitcher";
 
-export function Titlebar() {
+interface TitlebarProps {
+  terminalOpen: boolean;
+  onToggleTerminal: () => void;
+}
+
+export function Titlebar({ terminalOpen, onToggleTerminal }: TitlebarProps) {
   return (
     <div className="flex items-center px-4 py-2.5 bg-editor-sidebar border-b border-editor-border">
       <div className="flex items-center gap-2">
@@ -14,6 +19,17 @@ export function Titlebar() {
       </div>
       <div className="flex items-center gap-3">
         <LocaleSwitcher />
+        <button
+          onClick={onToggleTerminal}
+          aria-label="Toggle terminal"
+          className={`font-mono text-[11px] transition-colors ${
+            terminalOpen
+              ? "text-editor-text"
+              : "text-editor-muted hover:text-editor-text"
+          }`}
+        >
+          ❯_
+        </button>
         <ThemeToggle />
       </div>
     </div>

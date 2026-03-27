@@ -5,6 +5,7 @@ import { Titlebar } from "./Titlebar";
 import { Sidebar } from "./Sidebar";
 import { Tabs } from "./Tabs";
 import { StatusBar } from "./StatusBar";
+import { Terminal } from "./Terminal";
 
 interface WindowProps {
   children: React.ReactNode;
@@ -13,6 +14,7 @@ interface WindowProps {
 export function Window({ children }: WindowProps) {
   const [activeSection, setActiveSection] = useState("hero");
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [terminalOpen, setTerminalOpen] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
 
   function handleNavigate(id: string) {
@@ -50,7 +52,10 @@ export function Window({ children }: WindowProps) {
 
   return (
     <div className="h-screen flex flex-col bg-editor-bg overflow-hidden font-mono text-[13px]">
-      <Titlebar />
+      <Titlebar
+        terminalOpen={terminalOpen}
+        onToggleTerminal={() => setTerminalOpen((prev) => !prev)}
+      />
       <div className="flex flex-1 overflow-hidden">
         {/* Mobile hamburger button */}
         <button
@@ -98,6 +103,7 @@ export function Window({ children }: WindowProps) {
           <StatusBar />
         </div>
       </div>
+      <Terminal open={terminalOpen} />
     </div>
   );
 }

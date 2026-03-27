@@ -12,30 +12,19 @@ interface Step {
   nextPath?: string;
 }
 
-export function Terminal() {
-  const [open, setOpen] = useState(false);
+interface TerminalProps {
+  open: boolean;
+}
+
+export function Terminal({ open }: TerminalProps) {
   const t = useTranslations("Projects");
   const items = t.raw("items") as Array<{ name: string }>;
 
   return (
     <>
-      {/* Toggle button */}
-      <button
-        onClick={() => setOpen(!open)}
-        className="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-xl flex items-center justify-center font-mono text-sm transition-all border cursor-pointer"
-        style={{
-          background: "rgba(26, 28, 35, 0.9)",
-          backdropFilter: "blur(12px)",
-          borderColor: open ? "#444" : "#2a2a2a",
-          color: open ? "#fff" : "#888",
-        }}
-      >
-        ❯_
-      </button>
-
       {/* Terminal overlay */}
       <div
-        className={`fixed bottom-20 right-6 z-40 transition-all duration-300 origin-bottom-right ${
+        className={`fixed bottom-6 right-6 z-40 transition-all duration-300 origin-bottom-right ${
           open
             ? "opacity-100 scale-100 translate-y-0"
             : "opacity-0 scale-95 translate-y-2 pointer-events-none"

@@ -26,7 +26,7 @@ export function Particles() {
 
     function init() {
       resize();
-      stars = Array.from({ length: 150 }, () => ({
+      stars = Array.from({ length: 50 }, () => ({
         x: (Math.random() - 0.5) * canvas!.width,
         y: (Math.random() - 0.5) * canvas!.height,
         z: Math.random() * canvas!.width,

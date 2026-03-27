@@ -1,12 +1,13 @@
-import { useTranslations } from "next-intl";
+import { Window } from "@/components/Window";
 
 export default function Home() {
-  const t = useTranslations("Hero");
-
   return (
-    <main className="min-h-screen bg-editor-bg-deep text-editor-text font-mono">
-      <h1>{t("name")}</h1>
-      <p>{t("title")}</p>
+    <main className="min-h-screen bg-editor-bg-deep p-0">
+      <Window>
+        <div className="p-6">
+          <p className="text-editor-muted">Content goes here...</p>
+        </div>
+      </Window>
     </main>
   );
 }

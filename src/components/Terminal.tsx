@@ -190,7 +190,7 @@ function TerminalBody({
             addText("\n");
             if (step.output) {
               for (const line of step.output) {
-                addText(`<span style="color:#8b8b8b">${line}</span>\n`);
+                addText(`<span style="color:#ccc">${line}</span>\n`);
               }
             }
             addText("\n");

@@ -15,13 +15,7 @@ const tabs = [
 export function Tabs() {
   const pathname = usePathname();
 
-  // Only show tabs relevant to current context
-  const visibleTabs = tabs.filter((tab) => {
-    // Always show main tabs
-    if (!tab.href.startsWith("/projects/")) return true;
-    // Show project sub-tabs only when on a project page
-    return pathname.startsWith("/projects/");
-  });
+  const visibleTabs = tabs;
 
   return (
     <div className="flex bg-editor-sidebar border-b border-editor-border overflow-x-auto">

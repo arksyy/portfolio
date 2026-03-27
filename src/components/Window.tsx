@@ -49,7 +49,7 @@ export function Window({ children }: WindowProps) {
   }, []);
 
   return (
-    <div className="h-screen flex flex-col bg-editor-bg border border-editor-border rounded-lg overflow-hidden font-mono text-[13px]">
+    <div className="h-full flex flex-col bg-editor-bg overflow-hidden font-mono text-[13px]">
       <Titlebar />
       <div className="flex flex-1 overflow-hidden">
         {/* Mobile hamburger button */}

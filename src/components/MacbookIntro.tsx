@@ -6,8 +6,17 @@ interface MacbookIntroProps {
 
 export function MacbookIntro({ children }: MacbookIntroProps) {
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center p-6">
-      <div className="w-full" style={{ maxWidth: "960px", perspective: "1200px" }}>
+    <div
+      className="min-h-screen flex items-center justify-center p-6 relative"
+      style={{
+        backgroundImage: "url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1920&q=80')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      {/* Dark overlay for contrast */}
+      <div className="absolute inset-0 bg-black/60" />
+      <div className="w-full relative z-10" style={{ maxWidth: "960px", perspective: "1200px" }}>
         {/* Lid / Screen */}
         <div
           style={{

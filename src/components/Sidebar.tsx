@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 
 const files = [
   { id: "hero", label: "README.md", icon: "◇", indent: 1 },
-  { id: "about", label: "about.md", icon: "◇", indent: 1 },
+  { id: "hero", label: "about.md", icon: "◇", indent: 1 },
   { id: "projects", label: "projects/", icon: "▸", indent: 1, isFolder: true },
   { id: "experience", label: "experience.md", icon: "◇", indent: 1 },
   { id: "contact", label: "contact.json", icon: "◇", indent: 1 },

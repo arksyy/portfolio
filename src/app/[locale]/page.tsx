@@ -1,13 +1,18 @@
 import { Window } from "@/components/Window";
+import { Hero } from "@/components/sections/Hero";
+import { Projects } from "@/components/sections/Projects";
+import { Experience } from "@/components/sections/Experience";
+import { Contact } from "@/components/sections/Contact";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-editor-bg-deep p-0">
-      <Window>
-        <div className="p-6">
-          <p className="text-editor-muted">Content goes here...</p>
-        </div>
-      </Window>
-    </main>
+    <Window>
+      <div className="pb-20">
+        <Hero />
+        <Projects />
+        <Experience />
+        <Contact />
+      </div>
+    </Window>
   );
 }

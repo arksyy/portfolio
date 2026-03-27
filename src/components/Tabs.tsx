@@ -10,18 +10,20 @@ const tabMap: Record<string, string> = {
 
 interface TabsProps {
   activeSection: string;
+  onNavigate: (id: string) => void;
 }
 
-export function Tabs({ activeSection }: TabsProps) {
+export function Tabs({ activeSection, onNavigate }: TabsProps) {
   return (
     <div className="flex bg-editor-sidebar border-b border-editor-border">
       {Object.entries(tabMap).map(([id, label]) => (
-        <div
+        <button
           key={id}
-          className={`px-4 py-2 text-xs border-r border-editor-border flex items-center gap-1.5 ${
+          onClick={() => onNavigate(id)}
+          className={`px-4 py-2 text-xs border-r border-editor-border flex items-center gap-1.5 cursor-pointer transition-colors ${
             id === activeSection
               ? "bg-editor-bg text-editor-text"
-              : "text-editor-muted"
+              : "text-editor-muted hover:text-editor-text"
           }`}
         >
           <span className="text-[10px]">◇</span>
@@ -29,7 +31,7 @@ export function Tabs({ activeSection }: TabsProps) {
           {id === activeSection && (
             <span className="text-[10px] text-editor-faint ml-1">×</span>
           )}
-        </div>
+        </button>
       ))}
     </div>
   );

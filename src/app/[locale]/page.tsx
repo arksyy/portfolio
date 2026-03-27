@@ -79,7 +79,7 @@ export default function Home() {
         )}
 
         <div className="flex flex-1 flex-col overflow-hidden">
-          <Tabs activeSection={activeSection} />
+          <Tabs activeSection={activeSection} onNavigate={handleNavigate} />
           <div className="flex-1 overflow-hidden">
             <div
               ref={contentRef}

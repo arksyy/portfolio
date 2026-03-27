@@ -1,5 +1,4 @@
 import { useTranslations } from "next-intl";
-import { Line } from "./Line";
 
 export function Experience() {
   const t = useTranslations("Experience");
@@ -11,31 +10,30 @@ export function Experience() {
   }>;
 
   return (
-    <section id="section-experience" className="px-6 py-4">
-      <Line num={12}>
-        <span className="text-syntax-comment">## {t("heading")}</span>
-      </Line>
-      <Line num={13} />
-      <div className="ml-10 my-3 space-y-1">
+    <section id="section-experience" className="px-8 md:px-12 py-12">
+      <h2 className="text-xs tracking-widest text-editor-faint uppercase mb-6">
+        {t("heading")}
+      </h2>
+      <div className="space-y-6">
         {items.map((item, i) => (
-          <div
-            key={i}
-            className="pl-4 py-3 border-l-2 border-editor-border hover:border-editor-muted transition-colors"
-          >
-            <div className="font-semibold text-editor-text">{item.role}</div>
-            <div className="text-xs text-editor-faint mt-0.5">
-              {item.place} · {item.date}
+          <div key={i} className="flex gap-6">
+            <div className="w-28 shrink-0 text-xs text-editor-faint pt-0.5">
+              {item.date}
             </div>
-            <div className="text-xs text-editor-muted mt-1.5">
-              {item.description}
+            <div>
+              <div className="text-sm font-semibold text-editor-text">
+                {item.role}
+              </div>
+              <div className="text-xs text-editor-muted mt-0.5">
+                {item.place}
+              </div>
+              <div className="text-xs text-editor-muted mt-2 leading-relaxed">
+                {item.description}
+              </div>
             </div>
           </div>
         ))}
       </div>
-      <Line num={14} />
-      <Line num={15}>
-        <span className="text-syntax-comment">---</span>
-      </Line>
     </section>
   );
 }

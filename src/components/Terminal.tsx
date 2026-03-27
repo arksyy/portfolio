@@ -33,7 +33,7 @@ export function Terminal({ open }: TerminalProps) {
         <div
           className="w-[700px] max-w-[calc(100vw-48px)] rounded-xl overflow-hidden font-mono text-sm border"
           style={{
-            background: "rgba(26, 28, 35, 0.55)",
+            background: "rgba(0, 0, 0, 0.75)",
             backdropFilter: "blur(20px)",
             borderColor: "rgba(255,255,255,0.06)",
             boxShadow: "0 20px 60px rgba(0,0,0,0.5)",

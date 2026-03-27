@@ -7,13 +7,11 @@ import { Particles } from "@/components/Particles";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center p-6 md:p-12 font-mono text-[14px]">
+    <div className="min-h-screen bg-page-bg flex items-center justify-center p-6 md:p-12 font-mono text-[14px]">
       <Particles />
 
       {/* Terminal window */}
-      <div className="relative z-10 w-full max-w-3xl rounded-xl overflow-hidden border border-editor-border shadow-2xl shadow-black/50"
-        style={{ background: "rgba(14, 14, 14, 0.9)", backdropFilter: "blur(12px)" }}
-      >
+      <div className="relative z-10 w-full max-w-3xl rounded-xl overflow-hidden border border-editor-border shadow-2xl shadow-black/30 bg-terminal-bg backdrop-blur-xl">
         {/* Terminal bar */}
         <div className="flex items-center justify-between px-5 py-3 border-b border-editor-border">
           <div className="flex items-center gap-2">

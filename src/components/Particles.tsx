@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useTheme } from "next-themes";
 
 export function Particles() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { resolvedTheme } = useTheme();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -11,6 +13,8 @@ export function Particles() {
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
+
+    const isDark = resolvedTheme !== "light";
 
     let animationId: number;
     let particles: Array<{
@@ -46,6 +50,8 @@ export function Particles() {
     function draw() {
       ctx!.clearRect(0, 0, canvas!.width, canvas!.height);
 
+      const rgb = isDark ? "255, 255, 255" : "0, 0, 0";
+
       for (const p of particles) {
         p.x += p.vx;
         p.y += p.vy;
@@ -57,11 +63,10 @@ export function Particles() {
 
         ctx!.beginPath();
         ctx!.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx!.fillStyle = `rgba(255, 255, 255, ${p.opacity})`;
+        ctx!.fillStyle = `rgba(${rgb}, ${p.opacity})`;
         ctx!.fill();
       }
 
-      // Draw lines between close particles
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
@@ -72,7 +77,7 @@ export function Particles() {
             ctx!.beginPath();
             ctx!.moveTo(particles[i].x, particles[i].y);
             ctx!.lineTo(particles[j].x, particles[j].y);
-            ctx!.strokeStyle = `rgba(255, 255, 255, ${0.06 * (1 - dist / 120)})`;
+            ctx!.strokeStyle = `rgba(${rgb}, ${0.06 * (1 - dist / 120)})`;
             ctx!.lineWidth = 0.5;
             ctx!.stroke();
           }
@@ -90,7 +95,7 @@ export function Particles() {
       window.removeEventListener("resize", init);
       cancelAnimationFrame(animationId);
     };
-  }, []);
+  }, [resolvedTheme]);
 
   return (
     <canvas

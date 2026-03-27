@@ -24,10 +24,10 @@ export function Terminal({ open }: TerminalProps) {
     <>
       {/* Terminal overlay */}
       <div
-        className={`fixed bottom-6 right-6 z-40 transition-all duration-300 origin-bottom-right ${
+        className={`fixed inset-0 z-40 flex items-center justify-center transition-all duration-300 ${
           open
-            ? "opacity-100 scale-100 translate-y-0"
-            : "opacity-0 scale-95 translate-y-2 pointer-events-none"
+            ? "opacity-100 scale-100"
+            : "opacity-0 scale-95 pointer-events-none"
         }`}
       >
         <div

@@ -1,62 +1,63 @@
 {
   "Hero": {
-    "name": "Alexandre Roy",
-    "title": "Developer · Québec",
-    "bio": "Computer Science student at Cégep Garneau, passionate about web development and problem-solving. Bilingual French-English with a strong work ethic."
+    "name": "alexandre roy",
+    "title": "developer · québec",
+    "bio": "computer science student at cégep garneau, passionate about web development and problem-solving. bilingual french-english with a strong work ethic."
   },
   "Projects": {
-    "heading": "Projects",
-    "items": [
-      {
-        "file": "project-01.md",
-        "name": "Example project",
-        "description": "Short description of the project and what it achieves.",
-        "tags": ["React", "Node.js"]
-      },
-      {
-        "file": "project-02.md",
-        "name": "Example project",
-        "description": "Short description of the project and what it achieves.",
-        "tags": ["Java", "SQL"]
-      }
-    ]
+    "heading": "projects",
+    "canopia": {
+      "name": "canopia",
+      "description": "short description of the canopia project and what it achieves.",
+      "tags": ["react", "node.js"]
+    },
+    "crm": {
+      "name": "crm",
+      "description": "short description of the crm project and what it achieves.",
+      "tags": ["java", "sql"]
+    },
+    "entreprise": {
+      "name": "entreprise",
+      "description": "short description of the entreprise project and what it achieves.",
+      "tags": ["next.js", "tailwind"]
+    }
   },
   "Experience": {
-    "heading": "Experience",
+    "heading": "experience",
     "items": [
       {
-        "date": "2023 — Present",
-        "role": "Dek hockey referee",
-        "place": "DDLC — Québec, QC",
-        "description": "Game officiating, conflict resolution, rule enforcement."
+        "date": "2023 — present",
+        "role": "dek hockey referee",
+        "place": "ddlc — québec, qc",
+        "description": "game officiating, conflict resolution, rule enforcement."
       },
       {
-        "date": "Summer 2025",
-        "role": "Camp counselor",
-        "place": "Camp Kéno — Québec, QC",
-        "description": "Support for a youth with special needs, group management."
+        "date": "summer 2025",
+        "role": "camp counselor",
+        "place": "camp kéno — québec, qc",
+        "description": "support for a youth with special needs, group management."
       },
       {
-        "date": "Summer 2024",
-        "role": "Pressure washer",
-        "place": "Qualité Étudiants — Québec, QC",
-        "description": "Residential cleaning, personalized client service."
+        "date": "summer 2024",
+        "role": "pressure washer",
+        "place": "qualité étudiants — québec, qc",
+        "description": "residential cleaning, personalized client service."
       },
       {
         "date": "2019 — 2022",
-        "role": "Bakery clerk",
-        "place": "IGA — Québec, QC",
-        "description": "Production, customer service, workspace management."
+        "role": "bakery clerk",
+        "place": "iga — québec, qc",
+        "description": "production, customer service, workspace management."
       }
     ]
   },
   "Contact": {
-    "heading": "Contact",
+    "heading": "contact",
     "email": "alexandre15roy@gmail.com",
     "downloadCv": "download cv.pdf"
   },
   "Sidebar": {
-    "explorer": "EXPLORER"
+    "explorer": "explorer"
   },
   "StatusBar": {
     "branch": "main",

@@ -1,29 +1,25 @@
 "use client";
 
+import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 
-const files = [
-  { href: "/", label: "README.md", icon: "◇" },
-  { href: "/", label: "about.md", icon: "◇" },
-  { href: "/projects", label: "projects/", icon: "▸" },
-  { href: "/experience", label: "experience.md", icon: "◇" },
-  { href: "/contact", label: "contact.json", icon: "◇" },
-  { href: "/cv.pdf", label: "cv.pdf", icon: "↓", external: true, separated: true },
+const projects = [
+  { slug: "canopia", label: "canopia.md" },
+  { slug: "crm", label: "crm.md" },
+  { slug: "entreprise", label: "entreprise.md" },
 ];
 
-interface SidebarProps {
-  open?: boolean;
-  onClose?: () => void;
-}
-
-export function Sidebar({ open, onClose }: SidebarProps) {
+export function Sidebar() {
   const t = useTranslations("Sidebar");
   const pathname = usePathname();
+  const [projectsOpen, setProjectsOpen] = useState(
+    pathname.startsWith("/projects")
+  );
 
   function isActive(href: string) {
     if (href === "/") return pathname === "/";
-    return pathname.startsWith(href);
+    return pathname === href;
   }
 
   const sidebarContent = (
@@ -36,48 +32,101 @@ export function Sidebar({ open, onClose }: SidebarProps) {
           <span className="text-xs">▾</span>
           <span>~/alexandre-roy</span>
         </div>
-        {files.map((file) =>
-          file.external ? (
-            <a
-              key={file.label}
-              href={file.href}
-              target="_blank"
-              onClick={onClose}
-              className={`w-full text-left pl-8 px-4 py-1.5 flex items-center gap-2 transition-colors hover:bg-editor-border/50 text-editor-muted ${
-                file.separated ? "mt-2 pt-2 border-t border-editor-border" : ""
-              }`}
-            >
-              <span className="w-4 text-center text-xs">{file.icon}</span>
-              <span>{file.label}</span>
-            </a>
-          ) : (
+
+        {/* README.md */}
+        <Link
+          href="/"
+
+          className={`w-full text-left pl-8 py-1.5 flex items-center gap-2 transition-colors hover:bg-editor-border/50 ${
+            isActive("/") ? "bg-editor-border/50 text-editor-text" : "text-editor-muted"
+          }`}
+        >
+          <span className="w-4 text-center text-xs">◇</span>
+          <span>README.md</span>
+        </Link>
+
+        {/* about.md */}
+        <Link
+          href="/"
+
+          className={`w-full text-left pl-8 py-1.5 flex items-center gap-2 transition-colors hover:bg-editor-border/50 ${
+            isActive("/") ? "bg-editor-border/50 text-editor-text" : "text-editor-muted"
+          }`}
+        >
+          <span className="w-4 text-center text-xs">◇</span>
+          <span>about.md</span>
+        </Link>
+
+        {/* projects/ folder */}
+        <button
+          onClick={() => setProjectsOpen((prev) => !prev)}
+          className={`w-full text-left pl-8 py-1.5 flex items-center gap-2 transition-colors hover:bg-editor-border/50 ${
+            pathname.startsWith("/projects")
+              ? "text-editor-text"
+              : "text-editor-muted"
+          }`}
+        >
+          <span className="w-4 text-center text-xs">
+            {projectsOpen ? "▾" : "▸"}
+          </span>
+          <span>projects/</span>
+        </button>
+
+        {/* project sub-items */}
+        {projectsOpen &&
+          projects.map((project) => (
             <Link
-              key={file.label}
-              href={file.href}
-              onClick={onClose}
-              className={`w-full text-left pl-8 px-4 py-1.5 flex items-center gap-2 transition-colors hover:bg-editor-border/50 ${
-                isActive(file.href)
+              key={project.slug}
+              href={`/projects/${project.slug}`}
+    
+              className={`w-full text-left pl-14 py-1.5 flex items-center gap-2 transition-colors hover:bg-editor-border/50 ${
+                isActive(`/projects/${project.slug}`)
                   ? "bg-editor-border/50 text-editor-text"
                   : "text-editor-muted"
               }`}
             >
-              <span className="w-4 text-center text-xs">{file.icon}</span>
-              <span>{file.label}</span>
+              <span className="w-4 text-center text-xs">◇</span>
+              <span>{project.label}</span>
             </Link>
-          )
-        )}
+          ))}
+
+        {/* experience.md */}
+        <Link
+          href="/experience"
+
+          className={`w-full text-left pl-8 py-1.5 flex items-center gap-2 transition-colors hover:bg-editor-border/50 ${
+            isActive("/experience") ? "bg-editor-border/50 text-editor-text" : "text-editor-muted"
+          }`}
+        >
+          <span className="w-4 text-center text-xs">◇</span>
+          <span>experience.md</span>
+        </Link>
+
+        {/* contact.json */}
+        <Link
+          href="/contact"
+
+          className={`w-full text-left pl-8 py-1.5 flex items-center gap-2 transition-colors hover:bg-editor-border/50 ${
+            isActive("/contact") ? "bg-editor-border/50 text-editor-text" : "text-editor-muted"
+          }`}
+        >
+          <span className="w-4 text-center text-xs">◇</span>
+          <span>contact.json</span>
+        </Link>
+
+        {/* cv.pdf */}
+        <a
+          href="/cv.pdf"
+          target="_blank"
+
+          className="w-full text-left pl-8 py-1.5 flex items-center gap-2 transition-colors hover:bg-editor-border/50 text-editor-muted mt-2 pt-2 border-t border-editor-border"
+        >
+          <span className="w-4 text-center text-xs">↓</span>
+          <span>cv.pdf</span>
+        </a>
       </div>
     </div>
   );
 
-  return (
-    <>
-      <div className="hidden md:block h-full">{sidebarContent}</div>
-      {open && (
-        <div className="md:hidden fixed inset-y-0 left-0 z-40">
-          {sidebarContent}
-        </div>
-      )}
-    </>
-  );
+  return sidebarContent;
 }

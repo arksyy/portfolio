@@ -1,62 +1,63 @@
 {
   "Hero": {
-    "name": "Alexandre Roy",
-    "title": "Développeur · Québec",
-    "bio": "Étudiant en technique informatique au Cégep Garneau, passionné par le développement web et la résolution de problèmes. Bilingue français-anglais avec une forte éthique de travail."
+    "name": "alexandre roy",
+    "title": "développeur · québec",
+    "bio": "étudiant en technique informatique au cégep garneau, passionné par le développement web et la résolution de problèmes. bilingue français-anglais avec une forte éthique de travail."
   },
   "Projects": {
-    "heading": "Projets",
-    "items": [
-      {
-        "file": "projet-01.md",
-        "name": "Projet exemple",
-        "description": "Description courte du projet et de ce qu'il accomplit.",
-        "tags": ["React", "Node.js"]
-      },
-      {
-        "file": "projet-02.md",
-        "name": "Projet exemple",
-        "description": "Description courte du projet et de ce qu'il accomplit.",
-        "tags": ["Java", "SQL"]
-      }
-    ]
+    "heading": "projets",
+    "canopia": {
+      "name": "canopia",
+      "description": "description courte du projet canopia et de ce qu'il accomplit.",
+      "tags": ["react", "node.js"]
+    },
+    "crm": {
+      "name": "crm",
+      "description": "description courte du projet crm et de ce qu'il accomplit.",
+      "tags": ["java", "sql"]
+    },
+    "entreprise": {
+      "name": "entreprise",
+      "description": "description courte du projet entreprise et de ce qu'il accomplit.",
+      "tags": ["next.js", "tailwind"]
+    }
   },
   "Experience": {
-    "heading": "Expérience",
+    "heading": "expérience",
     "items": [
       {
-        "date": "2023 — Présent",
-        "role": "Arbitre de dekhockey",
-        "place": "DDLC — Québec, QC",
-        "description": "Arbitrage de parties, résolution de conflits, application des règlements."
+        "date": "2023 — présent",
+        "role": "arbitre de dekhockey",
+        "place": "ddlc — québec, qc",
+        "description": "arbitrage de parties, résolution de conflits, application des règlements."
       },
       {
-        "date": "Été 2025",
-        "role": "Accompagnateur",
-        "place": "Camp Kéno — Québec, QC",
-        "description": "Accompagnement d'un jeune avec des besoins spéciaux, gestion de groupe."
+        "date": "été 2025",
+        "role": "accompagnateur",
+        "place": "camp kéno — québec, qc",
+        "description": "accompagnement d'un jeune avec des besoins spéciaux, gestion de groupe."
       },
       {
-        "date": "Été 2024",
-        "role": "Laveur à pression",
-        "place": "Qualité Étudiants — Québec, QC",
-        "description": "Nettoyage résidentiel, service personnalisé chez les clients."
+        "date": "été 2024",
+        "role": "laveur à pression",
+        "place": "qualité étudiants — québec, qc",
+        "description": "nettoyage résidentiel, service personnalisé chez les clients."
       },
       {
         "date": "2019 — 2022",
-        "role": "Commis à la boulangerie",
-        "place": "IGA — Québec, QC",
-        "description": "Production, service à la clientèle, gestion de l'espace de travail."
+        "role": "commis à la boulangerie",
+        "place": "iga — québec, qc",
+        "description": "production, service à la clientèle, gestion de l'espace de travail."
       }
     ]
   },
   "Contact": {
-    "heading": "Contact",
+    "heading": "contact",
     "email": "alexandre15roy@gmail.com",
     "downloadCv": "télécharger cv.pdf"
   },
   "Sidebar": {
-    "explorer": "EXPLORER"
+    "explorer": "explorer"
   },
   "StatusBar": {
     "branch": "main",

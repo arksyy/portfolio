@@ -3,13 +3,10 @@ import { Projects } from "@/components/sections/Projects";
 import { Experience } from "@/components/sections/Experience";
 import { Contact } from "@/components/sections/Contact";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { Particles } from "@/components/Particles";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-page-bg font-mono text-[14px] relative">
-      <Particles />
-
       {/* Nav as prompt */}
       <nav className="sticky top-0 z-50 flex items-center gap-6 px-8 py-4 bg-page-bg/85 backdrop-blur-md border-b border-editor-border">
         <span>

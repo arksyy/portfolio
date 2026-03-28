@@ -71,6 +71,7 @@ a, button, [role="button"], [onclick] {
 
 .terminal-prompt-line {
   color: var(--color-editor-muted);
+  word-break: break-all;
 }
 
 .terminal-prefix {
@@ -107,16 +108,26 @@ a, button, [role="button"], [onclick] {
   color: var(--color-editor-muted);
 }
 
+.terminal-hint-line {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+}
+
 .terminal-inline-hint {
   color: #444;
   font-size: 12px;
-  margin-left: 4px;
-  display: inline;
 }
 
 .terminal-output h1 {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 700;
+}
+
+@media (min-width: 480px) {
+  .terminal-output h1 {
+    font-size: 28px;
+  }
 }
 
 .terminal-subtitle {
@@ -162,6 +173,7 @@ a, button, [role="button"], [onclick] {
 
 .terminal-tags {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   margin-top: 8px;
 }
@@ -187,6 +199,17 @@ a, button, [role="button"], [onclick] {
   font-size: 12px;
   color: var(--color-editor-faint);
   padding-top: 2px;
+}
+
+@media (max-width: 480px) {
+  .terminal-exp {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .terminal-exp-date {
+    width: auto;
+  }
 }
 
 .terminal-exp-role {
@@ -238,6 +261,13 @@ a, button, [role="button"], [onclick] {
   margin-left: 8px;
 }
 
+@media (max-width: 480px) {
+  .terminal-screenshots {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
 .terminal-screenshots:hover {
   color: var(--color-editor-text);
 }
@@ -258,6 +288,31 @@ a, button, [role="button"], [onclick] {
   max-height: 80vh;
   border-radius: 4px;
   border: 1px solid #333;
+}
+
+@media (max-width: 480px) {
+  .terminal-lightbox {
+    gap: 0;
+  }
+
+  .terminal-lightbox-img {
+    max-width: 92vw;
+  }
+
+  .terminal-lightbox-btn {
+    position: absolute;
+    font-size: 36px;
+    z-index: 101;
+    padding: 8px;
+  }
+
+  .terminal-lightbox-prev {
+    left: 4px;
+  }
+
+  .terminal-lightbox-next {
+    right: 4px;
+  }
 }
 
 .terminal-lightbox-close {

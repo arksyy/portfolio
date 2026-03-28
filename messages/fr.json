@@ -84,6 +84,7 @@
     "ok": "ok",
     "username": "alexandre-roy",
     "hint": "veuillez appuyer sur entrée",
+    "hintMobile": "veuillez appuyer sur l'écran",
     "promptPrefix": "~/dev/portfolio",
     "commands": ["whoami", "ls ~/projets/", "cat experience.md", "cat formation.md", "cat contact.json"],
     "goodbye": "echo \"merci d'avoir visité!\""

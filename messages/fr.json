@@ -27,7 +27,7 @@
       "url": "https://delajoiequebec.com",
       "description": "plateforme de réservation en ligne pour un camping avec paiement stripe, recherche de disponibilités et gestion admin",
       "tags": ["nuxt", "vue", "stripe", "sqlite", "tailwind"],
-      "images": ["/images/site-delajoie/Screenshot 2026-03-27 at 23.48.09.png", "/images/site-delajoie/Screenshot 2026-03-27 at 23.48.37.png", "/images/site-delajoie/Screenshot 2026-03-27 at 23.49.15.png", "/images/site-delajoie/Screenshot 2026-03-27 at 23.49.52.png"]
+      "images": ["/images/site-delajoie/Screenshot 2026-03-27 at 23.48.09.jpg", "/images/site-delajoie/Screenshot 2026-03-27 at 23.48.37.jpg", "/images/site-delajoie/Screenshot 2026-03-27 at 23.49.15.jpg", "/images/site-delajoie/Screenshot 2026-03-27 at 23.49.52.jpg"]
     },
     "bram": {
       "name": "_bram.",
@@ -35,7 +35,7 @@
       "description": "entreprise de développement web sur mesure, spécialisée en applications réactives et solutions personnalisées",
       "tags": ["next.js", "react", "motion", "tailwind", "i18n"],
       "url": "https://bramdev.ca",
-      "images": ["/images/bram/Screenshot 2026-03-27 at 23.50.18.png", "/images/bram/Screenshot 2026-03-27 at 23.50.56.png", "/images/bram/Screenshot 2026-03-27 at 23.51.27.png", "/images/bram/Screenshot 2026-03-27 at 23.51.40.png"]
+      "images": ["/images/bram/Screenshot 2026-03-27 at 23.50.18.jpg", "/images/bram/Screenshot 2026-03-27 at 23.50.56.jpg", "/images/bram/Screenshot 2026-03-27 at 23.51.27.jpg", "/images/bram/Screenshot 2026-03-27 at 23.51.40.jpg"]
     }
   },
   "Experience": {

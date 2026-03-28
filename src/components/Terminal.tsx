@@ -28,7 +28,7 @@ export function Terminal() {
 
       switch (cmd) {
         case "whoami":
-          return `<h1>${t("Hero.name")}</h1><p class="terminal-subtitle">${t("Hero.title")}</p><p class="terminal-bio">${t("Hero.bio")}</p>`;
+          return `<p class="terminal-subtitle">${t("Hero.title")}</p><p class="terminal-bio">${t("Hero.bio")}</p>`;
 
         case "ls ~/projets/":
           return projects
@@ -60,6 +60,19 @@ export function Terminal() {
     if (!terminalRef.current) return;
     const terminal = terminalRef.current as HTMLDivElement;
     const s = stateRef.current;
+
+    let cancelled = false;
+
+    // Reset state on re-run (React Strict Mode)
+    terminal.innerHTML = "";
+    s.currentStep = -1;
+    s.isAnimating = false;
+    s.state = "idle";
+    s.currentBlock = null;
+    s.currentCmdEl = null;
+    s.currentCursorEl = null;
+    if (s.hintTimeout) clearTimeout(s.hintTimeout);
+    s.hintEl = null;
 
     const commands = t.raw("Terminal.commands") as string[];
 
@@ -129,32 +142,48 @@ export function Terminal() {
 
       if (s.currentStep > 0) {
         await new Promise((r) => setTimeout(r, 1500));
+        if (cancelled) return;
       }
 
       await typeText(s.currentCmdEl, commands[s.currentStep], 45);
+      if (cancelled) return;
 
+      s.currentCursorEl.classList.add("terminal-cursor-blink");
       s.isAnimating = false;
       s.state = "waiting_for_enter";
 
-      const cmdEl = s.currentCmdEl;
-      const cursorEl = s.currentCursorEl;
-      s.hintTimeout = setTimeout(() => {
-        s.hintEl = document.createElement("span");
-        s.hintEl.className = "terminal-inline-hint";
-        cmdEl.parentElement!.insertBefore(s.hintEl, cursorEl);
-        const hintText = "  " + t("Terminal.hint");
-        let hi = 0;
-        const hintInterval = setInterval(() => {
-          s.hintEl!.textContent += hintText[hi];
-          hi++;
-          if (hi >= hintText.length) clearInterval(hintInterval);
-        }, 45);
-      }, 3000);
+      if (s.currentStep === 0) {
+        const cmdEl = s.currentCmdEl;
+        const cursorEl = s.currentCursorEl;
+        s.hintTimeout = setTimeout(() => {
+          s.hintEl = document.createElement("span");
+          s.hintEl.className = "terminal-inline-hint";
+          cmdEl.parentElement!.insertBefore(s.hintEl, cursorEl);
+          const hintText = "  " + t("Terminal.hint");
+          let hi = 0;
+          const hintInterval = setInterval(() => {
+            s.hintEl!.textContent += hintText[hi];
+            hi++;
+            if (hi >= hintText.length) clearInterval(hintInterval);
+          }, 45);
+        }, 3000);
+      }
     }
 
-    function executeCurrentCommand() {
+    async function revealChildren(container: HTMLDivElement) {
+      const children = Array.from(container.children) as HTMLElement[];
+      for (const child of children) {
+        child.style.visibility = "visible";
+        scrollDown();
+        const delay = 40 + Math.random() * 120;
+        await new Promise((r) => setTimeout(r, delay));
+      }
+    }
+
+    async function executeCurrentCommand() {
       if (s.state !== "waiting_for_enter" || s.isAnimating) return;
       s.state = "idle";
+      s.isAnimating = true;
 
       if (s.hintTimeout) clearTimeout(s.hintTimeout);
       if (s.hintEl) {
@@ -167,9 +196,20 @@ export function Terminal() {
       const output = document.createElement("div");
       output.className = "terminal-output";
       output.innerHTML = getOutputHtml(commands[s.currentStep]);
+
+      // Hide all children initially
+      const children = Array.from(output.children) as HTMLElement[];
+      for (const child of children) {
+        child.style.visibility = "hidden";
+      }
+
       s.currentBlock!.appendChild(output);
       scrollDown();
 
+      // Reveal children one by one with random delays
+      await revealChildren(output);
+
+      s.isAnimating = false;
       showNextPrompt();
     }
 
@@ -183,6 +223,7 @@ export function Terminal() {
       ];
 
       for (const line of bootData) {
+        if (cancelled) return;
         const div = document.createElement("div");
         div.className = "terminal-boot-line";
         div.innerHTML = line;
@@ -190,7 +231,9 @@ export function Terminal() {
         scrollDown();
         await new Promise((r) => setTimeout(r, 250));
       }
+      if (cancelled) return;
       await new Promise((r) => setTimeout(r, 400));
+      if (cancelled) return;
       s.isAnimating = false;
       showNextPrompt();
     }
@@ -206,6 +249,7 @@ export function Terminal() {
     boot();
 
     return () => {
+      cancelled = true;
       document.removeEventListener("keydown", handleKeyDown);
       if (s.hintTimeout) clearTimeout(s.hintTimeout);
     };

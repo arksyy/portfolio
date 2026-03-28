@@ -1,8 +1,8 @@
 {
   "Hero": {
     "name": "alexandre roy",
-    "title": "développeur · québec",
-    "bio": "étudiant en technique informatique au cégep garneau, passionné par le développement web et la résolution de problèmes. bilingue français-anglais avec une forte éthique de travail."
+    "title": "développeur full-stack · québec, canada",
+    "bio": "étudiant en informatique passionné par les interfaces soignées. je travaille autant sur le design que le backend, avec un souci constant pour la qualité de l'expérience utilisateur."
   },
   "Projects": {
     "heading": "projets",
@@ -65,10 +65,10 @@
     "fileType": "Markdown"
   },
   "Terminal": {
-    "boot1": "initializing system...",
-    "boot2": "loading modules...",
-    "boot3": "mounting /dev/portfolio...",
-    "boot4": "starting session for",
+    "boot1": "initialisation du système...",
+    "boot2": "chargement des modules...",
+    "boot3": "montage de /dev/portfolio...",
+    "boot4": "démarrage de la session pour",
     "ok": "ok",
     "username": "alexandre-roy",
     "hint": "veuillez appuyer sur entrée",

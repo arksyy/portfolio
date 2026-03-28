@@ -278,9 +278,10 @@ a, button, [role="button"], [onclick] {
   z-index: 100;
   background: rgba(0, 0, 0, 0.9);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 0;
 }
 
 .terminal-lightbox-img {
@@ -290,28 +291,17 @@ a, button, [role="button"], [onclick] {
   border: 1px solid #333;
 }
 
-@media (max-width: 480px) {
-  .terminal-lightbox {
-    gap: 0;
-  }
+.terminal-lightbox-nav {
+  display: flex;
+  gap: 32px;
+  margin-top: 12px;
+  align-items: center;
+}
 
+@media (max-width: 480px) {
   .terminal-lightbox-img {
     max-width: 92vw;
-  }
-
-  .terminal-lightbox-btn {
-    position: absolute;
-    font-size: 36px;
-    z-index: 101;
-    padding: 8px;
-  }
-
-  .terminal-lightbox-prev {
-    left: 4px;
-  }
-
-  .terminal-lightbox-next {
-    right: 4px;
+    max-height: 60vh;
   }
 }
 
@@ -341,6 +331,9 @@ a, button, [role="button"], [onclick] {
   padding: 0 12px;
   font-family: inherit;
   line-height: 1;
+  display: flex;
+  align-items: center;
+  height: 48px;
 }
 
 .terminal-lightbox-btn:hover {
@@ -348,13 +341,10 @@ a, button, [role="button"], [onclick] {
 }
 
 .terminal-lightbox-counter {
-  position: absolute;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
   color: #888;
-  font-size: 12px;
+  font-size: 14px;
   font-family: "JetBrains Mono", monospace;
+  padding-top: 10.5px;
 }
 
 .terminal-contact {

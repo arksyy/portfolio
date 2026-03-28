@@ -418,11 +418,15 @@ export function Terminal() {
       closeBtn.textContent = "✕";
       closeBtn.addEventListener("click", () => { overlay.remove(); document.removeEventListener("keydown", handleLightboxKey); });
 
+      const nav = document.createElement("div");
+      nav.className = "terminal-lightbox-nav";
+      nav.appendChild(prevBtn);
+      nav.appendChild(counter);
+      nav.appendChild(nextBtn);
+
       overlay.appendChild(closeBtn);
-      overlay.appendChild(prevBtn);
       overlay.appendChild(img);
-      overlay.appendChild(nextBtn);
-      overlay.appendChild(counter);
+      overlay.appendChild(nav);
       document.body.appendChild(overlay);
     }
 

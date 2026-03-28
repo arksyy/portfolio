@@ -32,7 +32,7 @@ export default async function LocaleLayout({
     <html lang={locale} suppressHydrationWarning>
       <body className="antialiased">
         <a
-          href="https://www.linkedin.com/in/alexandre-roy-dev/"
+          href="https://www.linkedin.com/in/alexandreroyy/"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"

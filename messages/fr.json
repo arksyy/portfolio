@@ -19,7 +19,7 @@
       "description": "panneau d'administration desktop pour la gestion d'un camping: réservations, clients, terrains, facturation et calendrier",
       "tags": ["vue", "tauri", "tailwind", "pinia", "tanstack"],
       "favicon": "/images/crm/favicon.png",
-      "images": []
+      "images": ["/images/crm/Screenshot 2026-03-28 at 01.12.14.jpg", "/images/crm/Screenshot 2026-03-28 at 01.12.37.jpg", "/images/crm/Screenshot 2026-03-28 at 01.12.55.jpg", "/images/crm/Screenshot 2026-03-28 at 01.13.24.jpg"]
     },
     "site-delajoie": {
       "name": "site-delajoie",

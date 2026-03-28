@@ -237,16 +237,19 @@ export function Terminal() {
         const cmdEl = s.currentCmdEl;
         const cursorEl = s.currentCursorEl;
         s.hintTimeout = setTimeout(() => {
-          const hintLine = document.createElement("div");
-          hintLine.className = "terminal-hint-line";
           s.hintEl = document.createElement("span");
           s.hintEl.className = "terminal-inline-hint";
-          hintLine.appendChild(s.hintEl);
-          // Move cursor to hint line
-          cursorEl.remove();
-          hintLine.appendChild(cursorEl);
-          cmdEl.closest(".terminal-cmd-block")!.appendChild(hintLine);
-          const hintText = isTouchDevice ? t("Terminal.hintMobile") : t("Terminal.hint");
+          if (isTouchDevice) {
+            const hintLine = document.createElement("div");
+            hintLine.className = "terminal-hint-line";
+            hintLine.appendChild(s.hintEl);
+            cursorEl.remove();
+            hintLine.appendChild(cursorEl);
+            cmdEl.closest(".terminal-cmd-block")!.appendChild(hintLine);
+          } else {
+            cmdEl.parentElement!.insertBefore(s.hintEl, cursorEl);
+          }
+          const hintText = isTouchDevice ? t("Terminal.hintMobile") : ("  " + t("Terminal.hint"));
           let hi = 0;
           s.hintInterval = setInterval(() => {
             s.hintEl!.textContent += hintText[hi];
@@ -273,7 +276,7 @@ export function Terminal() {
 
       if (s.hintTimeout) { clearTimeout(s.hintTimeout); s.hintTimeout = null; }
       if (s.hintInterval) { clearInterval(s.hintInterval); s.hintInterval = null; }
-      if (s.hintEl) { const hintLine = s.hintEl.parentElement; if (hintLine?.classList.contains("terminal-hint-line")) hintLine.remove(); s.hintEl = null; }
+      if (s.hintEl) { const hintLine = s.hintEl.parentElement; if (hintLine?.classList.contains("terminal-hint-line")) hintLine.remove(); else s.hintEl.remove(); s.hintEl = null; }
 
       if (s.currentCursorEl) s.currentCursorEl.remove();
 

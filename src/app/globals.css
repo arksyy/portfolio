@@ -9,10 +9,24 @@ html {
 body {
   background: #000;
   color: #e0e0e0;
+  overflow: hidden auto;
 }
 
 a, button, [role="button"], [onclick] {
   cursor: pointer;
+}
+
+.linkedin-fixed {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 50;
+  color: var(--color-editor-muted);
+  transition: color 0.2s;
+}
+
+.linkedin-fixed:hover {
+  color: var(--color-editor-text);
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -90,6 +104,7 @@ a, button, [role="button"], [onclick] {
 
 .terminal-output {
   margin-top: 12px;
+  color: var(--color-editor-muted);
 }
 
 .terminal-inline-hint {
@@ -97,6 +112,11 @@ a, button, [role="button"], [onclick] {
   font-size: 12px;
   margin-left: 4px;
   display: inline;
+}
+
+.terminal-output h1 {
+  font-size: 28px;
+  font-weight: 700;
 }
 
 .terminal-subtitle {
@@ -125,6 +145,8 @@ a, button, [role="button"], [onclick] {
 .terminal-project h3 {
   font-size: 14px;
   font-weight: 600;
+  display: flex;
+  align-items: center;
 }
 
 .terminal-project .terminal-arrow {
@@ -133,17 +155,15 @@ a, button, [role="button"], [onclick] {
 }
 
 .terminal-project p {
-  color: var(--color-editor-faint);
+  color: var(--color-editor-muted);
   font-size: 12px;
   margin-top: 4px;
-  padding-left: 20px;
 }
 
 .terminal-tags {
   display: flex;
   gap: 8px;
   margin-top: 8px;
-  padding-left: 20px;
 }
 
 .terminal-tag {
@@ -161,8 +181,9 @@ a, button, [role="button"], [onclick] {
 }
 
 .terminal-exp-date {
-  width: 96px;
+  width: 140px;
   flex-shrink: 0;
+  white-space: nowrap;
   font-size: 12px;
   color: var(--color-editor-faint);
   padding-top: 2px;
@@ -179,6 +200,108 @@ a, button, [role="button"], [onclick] {
   margin-top: 2px;
 }
 
+.terminal-project-favicon {
+  width: 28px;
+  height: 28px;
+  margin-right: 8px;
+  border-radius: 4px;
+  border: 1px solid #333;
+  flex-shrink: 0;
+}
+
+.terminal-project-favicon[src*="crm"],
+.terminal-project-favicon[src*="site-delajoie"] {
+  background: #e7e4df;
+}
+
+.terminal-ext-link {
+  color: var(--color-editor-faint);
+  text-decoration: none;
+  margin-left: 8px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.terminal-ext-link:hover {
+  color: var(--color-editor-text);
+}
+
+.terminal-ext-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.terminal-screenshots {
+  color: var(--color-syntax-property);
+  cursor: pointer;
+  font-size: 10px;
+  margin-left: 8px;
+}
+
+.terminal-screenshots:hover {
+  color: var(--color-editor-text);
+}
+
+.terminal-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.terminal-lightbox-img {
+  max-width: 80vw;
+  max-height: 80vh;
+  border-radius: 4px;
+  border: 1px solid #333;
+}
+
+.terminal-lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  color: #888;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  line-height: 1;
+}
+
+.terminal-lightbox-close:hover {
+  color: #e0e0e0;
+}
+
+.terminal-lightbox-btn {
+  color: #888;
+  font-size: 48px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 12px;
+  font-family: inherit;
+  line-height: 1;
+}
+
+.terminal-lightbox-btn:hover {
+  color: #e0e0e0;
+}
+
+.terminal-lightbox-counter {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #888;
+  font-size: 12px;
+  font-family: "JetBrains Mono", monospace;
+}
+
 .terminal-contact {
   display: flex;
   flex-direction: column;
@@ -190,6 +313,13 @@ a, button, [role="button"], [onclick] {
   text-decoration: none;
   font-size: 13px;
   transition: color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.terminal-contact a svg {
+  flex-shrink: 0;
 }
 
 .terminal-contact a:hover {

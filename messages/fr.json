@@ -2,52 +2,64 @@
   "Hero": {
     "name": "alexandre roy",
     "title": "développeur full-stack · québec, canada",
-    "bio": "étudiant en informatique passionné par les interfaces soignées. je travaille autant sur le design que le backend, avec un souci constant pour la qualité de l'expérience utilisateur."
+    "bio": "étudiant en informatique passionné par les interfaces soignées. je travaille autant sur le design que le backend, avec un souci constant pour la qualité de l'expérience utilisateur"
   },
   "Projects": {
     "heading": "projets",
     "canopia": {
       "name": "canopia",
-      "description": "description courte du projet canopia et de ce qu'il accomplit.",
-      "tags": ["react", "node.js"]
+      "description": "application web d'analyse forestière par photo-interprétation, lidar et ia pour la planification d'opérations en forêt",
+      "tags": ["react", "fastapi", "maplibre", "claude api", "tailwind"],
+      "url": "https://canopiaquebec.ca",
+      "favicon": "/images/canopia/favicon.svg",
+      "images": []
     },
     "crm": {
-      "name": "crm",
-      "description": "description courte du projet crm et de ce qu'il accomplit.",
-      "tags": ["java", "sql"]
+      "name": "crm-delajoie",
+      "description": "panneau d'administration desktop pour la gestion d'un camping: réservations, clients, terrains, facturation et calendrier",
+      "tags": ["vue", "tauri", "tailwind", "pinia", "tanstack"],
+      "favicon": "/images/crm/favicon.png",
+      "images": []
     },
-    "entreprise": {
-      "name": "entreprise",
-      "description": "description courte du projet entreprise et de ce qu'il accomplit.",
-      "tags": ["next.js", "tailwind"]
+    "site-delajoie": {
+      "name": "site-delajoie",
+      "favicon": "/images/site-delajoie/favicon.png",
+      "url": "https://delajoiequebec.com",
+      "description": "plateforme de réservation en ligne pour un camping avec paiement stripe, recherche de disponibilités et gestion admin",
+      "tags": ["nuxt", "vue", "stripe", "sqlite", "tailwind"],
+      "images": ["/images/site-delajoie/Screenshot 2026-03-27 at 23.48.09.png", "/images/site-delajoie/Screenshot 2026-03-27 at 23.48.37.png", "/images/site-delajoie/Screenshot 2026-03-27 at 23.49.15.png", "/images/site-delajoie/Screenshot 2026-03-27 at 23.49.52.png"]
+    },
+    "bram": {
+      "name": "_bram.",
+      "favicon": "/images/bram/favicon.ico",
+      "description": "entreprise de développement web sur mesure, spécialisée en applications réactives et solutions personnalisées",
+      "tags": ["next.js", "react", "motion", "tailwind", "i18n"],
+      "url": "https://bramdev.ca",
+      "images": ["/images/bram/Screenshot 2026-03-27 at 23.50.18.png", "/images/bram/Screenshot 2026-03-27 at 23.50.56.png", "/images/bram/Screenshot 2026-03-27 at 23.51.27.png", "/images/bram/Screenshot 2026-03-27 at 23.51.40.png"]
     }
   },
   "Experience": {
     "heading": "expérience",
     "items": [
       {
-        "date": "2023 — présent",
-        "role": "arbitre de dekhockey",
-        "place": "ddlc — québec, qc",
-        "description": "arbitrage de parties, résolution de conflits, application des règlements."
+        "date": "depuis mars 2026",
+        "role": "développeur full-stack",
+        "place": "régie de l'assurance maladie du québec — québec, qc",
+        "description": "développement et maintenance d'applications web, conception d'api et d'interfaces, méthodologie agile"
+      }
+    ]
+  },
+  "Education": {
+    "items": [
+      {
+        "date": "prévu janvier 2027",
+        "diploma": "dec en informatique",
+        "place": "cégep garneau — québec, qc"
       },
       {
-        "date": "été 2025",
-        "role": "accompagnateur",
-        "place": "camp kéno — québec, qc",
-        "description": "accompagnement d'un jeune avec des besoins spéciaux, gestion de groupe."
-      },
-      {
-        "date": "été 2024",
-        "role": "laveur à pression",
-        "place": "qualité étudiants — québec, qc",
-        "description": "nettoyage résidentiel, service personnalisé chez les clients."
-      },
-      {
-        "date": "2019 — 2022",
-        "role": "commis à la boulangerie",
-        "place": "iga — québec, qc",
-        "description": "production, service à la clientèle, gestion de l'espace de travail."
+        "date": "2020",
+        "diploma": "diplôme d'études secondaires",
+        "place": "st-patrick's high school — québec, qc"
       }
     ]
   },
@@ -72,7 +84,8 @@
     "ok": "ok",
     "username": "alexandre-roy",
     "hint": "veuillez appuyer sur entrée",
-    "promptPrefix": "~/alexandre-roy",
-    "commands": ["whoami", "ls ~/projets/", "cat experience.md", "cat contact.json"]
+    "promptPrefix": "~/dev/portfolio",
+    "commands": ["whoami", "ls ~/projets/", "cat experience.md", "cat formation.md", "cat contact.json"],
+    "goodbye": "echo \"merci d'avoir visité!\""
   }
 }

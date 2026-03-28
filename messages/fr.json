@@ -12,7 +12,7 @@
       "tags": ["react", "fastapi", "maplibre", "claude api", "tailwind"],
       "url": "https://canopiaquebec.ca",
       "favicon": "/images/canopia/favicon.svg",
-      "images": []
+      "images": ["/images/canopia/Screenshot 2026-03-28 at 14.50.48.jpg", "/images/canopia/Screenshot 2026-03-28 at 14.55.28.jpg", "/images/canopia/Screenshot 2026-03-28 at 14.51.53.jpg", "/images/canopia/Screenshot 2026-03-28 at 14.53.26.jpg", "/images/canopia/Screenshot 2026-03-28 at 14.56.32.jpg"]
     },
     "crm": {
       "name": "crm-delajoie",

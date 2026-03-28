@@ -306,22 +306,25 @@
 
   .terminal-lightbox-img {
     max-width: 80vw;
-    max-height: 80vh;
+    max-height: calc(80vh - 60px);
     border-radius: 4px;
     border: 1px solid #333;
   }
 
   .terminal-lightbox-nav {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     gap: 32px;
-    margin-top: 12px;
     align-items: center;
   }
 
   @media (max-width: 480px) {
     .terminal-lightbox-img {
       max-width: 92vw;
-      max-height: 60vh;
+      max-height: calc(60vh - 60px);
     }
   }
 

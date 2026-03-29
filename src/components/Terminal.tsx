@@ -435,7 +435,7 @@ export function Terminal() {
 
     terminal.addEventListener("click", handleScreenshotClick);
     document.addEventListener("keydown", handleKeyDown);
-    document.addEventListener("click", handleTap);
+    if (isTouchDevice) document.addEventListener("click", handleTap);
     boot();
 
     return () => {

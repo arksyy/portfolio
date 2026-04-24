@@ -20,7 +20,7 @@ export function Terminal() {
 
   const getOutputHtml = useCallback(
     (cmd: string): string => {
-      const projects = ["canopia", "crm", "site-delajoie", "bram"] as const;
+      const projects = ["camplo", "canopia", "crm", "site-delajoie", "bram"] as const;
       const items = t.raw("Experience.items") as Array<{
         date: string;
         role: string;
@@ -35,16 +35,17 @@ export function Terminal() {
           const tryGet = (k: string) => { try { return t.has(k) ? t(k) : ""; } catch { return ""; } };
           return projects
             .map((key) => {
-              const tags = t.raw(`Projects.${key}.tags`) as string[];
               const images = t.raw(`Projects.${key}.images`) as string[];
               const url = tryGet(`Projects.${key}.url`);
               const favicon = tryGet(`Projects.${key}.favicon`);
+              const year = tryGet(`Projects.${key}.year`);
+              const month = tryGet(`Projects.${key}.month`);
               const photosBtn = images.length > 0 ? `<span class="terminal-screenshots" data-images='${JSON.stringify(images)}'>[ photos ]</span>` : "";
               const linkIcon = `<svg class="terminal-ext-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
               const linkBtn = url ? `<a href="${url}" target="_blank" rel="noopener" class="terminal-ext-link">${linkIcon}</a>` : "";
               const faviconImg = favicon ? `<img src="${favicon}" class="terminal-project-favicon" alt="" />` : "";
-              const arrow = url ? `<span class="terminal-arrow">→</span> ` : "";
-              return `<div class="terminal-project"><h3>${faviconImg}${t(`Projects.${key}.name`)}${linkBtn}</h3><p>${t(`Projects.${key}.description`)}</p><div class="terminal-tags">${tags.map((tag) => `<span class="terminal-tag">${tag}</span>`).join("")}${photosBtn}</div></div>`;
+              const datePills = [year, month].filter(Boolean).map((v) => `<span class="terminal-tag">${v}</span>`).join("");
+              return `<div class="terminal-project"><h3>${faviconImg}${t(`Projects.${key}.name`)}${linkBtn}</h3><p>${t(`Projects.${key}.description`)}</p><div class="terminal-tags">${datePills}${photosBtn}</div></div>`;
             })
             .join("");
         }

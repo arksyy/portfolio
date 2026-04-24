@@ -6,10 +6,20 @@
   },
   "Projects": {
     "heading": "projets",
+    "camplo": {
+      "name": "camplo",
+      "description": "agence spécialisée dans la création de sites web et crm pour campings",
+      "year": "2026",
+      "month": "avril",
+      "url": "https://camplo.ca",
+      "favicon": "/images/camplo/favicon.svg",
+      "images": ["/images/camplo/Screenshot 2026-04-24 at 11.04.58.jpg", "/images/camplo/Screenshot 2026-04-24 at 11.05.16.jpg", "/images/camplo/Screenshot 2026-04-24 at 11.05.40.jpg", "/images/camplo/Screenshot 2026-04-24 at 11.06.06.jpg"]
+    },
     "canopia": {
       "name": "canopia",
       "description": "application web d'analyse forestière par photo-interprétation, lidar et ia pour la planification d'opérations en forêt",
-      "tags": ["react", "fastapi", "maplibre", "claude api", "tailwind"],
+      "year": "2026",
+      "month": "mars",
       "url": "https://canopiaquebec.ca",
       "favicon": "/images/canopia/favicon.svg",
       "images": ["/images/canopia/Screenshot 2026-03-28 at 14.50.48.jpg", "/images/canopia/Screenshot 2026-03-28 at 14.55.28.jpg", "/images/canopia/Screenshot 2026-03-28 at 14.51.53.jpg", "/images/canopia/Screenshot 2026-03-28 at 14.53.26.jpg", "/images/canopia/Screenshot 2026-03-28 at 14.56.32.jpg"]
@@ -17,7 +27,8 @@
     "crm": {
       "name": "crm-delajoie",
       "description": "panneau d'administration desktop pour la gestion d'un camping: réservations, clients, terrains, facturation et calendrier",
-      "tags": ["vue", "tauri", "tailwind", "pinia", "tanstack"],
+      "year": "2026",
+      "month": "mars",
       "favicon": "/images/crm/favicon.png",
       "images": ["/images/crm/Screenshot 2026-03-28 at 01.12.14.jpg", "/images/crm/Screenshot 2026-03-28 at 01.12.37.jpg", "/images/crm/Screenshot 2026-03-28 at 01.12.55.jpg", "/images/crm/Screenshot 2026-03-28 at 01.13.24.jpg"]
     },
@@ -26,14 +37,16 @@
       "favicon": "/images/site-delajoie/favicon.png",
       "url": "https://delajoiequebec.com",
       "description": "plateforme de réservation en ligne pour un camping avec paiement stripe, recherche de disponibilités et gestion admin",
-      "tags": ["nuxt", "vue", "stripe", "sqlite", "tailwind"],
+      "year": "2026",
+      "month": "mars",
       "images": ["/images/site-delajoie/Screenshot 2026-03-27 at 23.48.09.jpg", "/images/site-delajoie/Screenshot 2026-03-27 at 23.48.37.jpg", "/images/site-delajoie/Screenshot 2026-03-27 at 23.49.15.jpg", "/images/site-delajoie/Screenshot 2026-03-27 at 23.49.52.jpg"]
     },
     "bram": {
       "name": "_bram.",
       "favicon": "/images/bram/favicon.ico",
       "description": "entreprise de développement web sur mesure, spécialisée en applications réactives et solutions personnalisées",
-      "tags": ["next.js", "react", "motion", "tailwind", "i18n"],
+      "year": "2025",
+      "month": "octobre",
       "url": "https://bramdev.ca",
       "images": ["/images/bram/Screenshot 2026-03-27 at 23.50.18.jpg", "/images/bram/Screenshot 2026-03-27 at 23.50.56.jpg", "/images/bram/Screenshot 2026-03-27 at 23.51.27.jpg", "/images/bram/Screenshot 2026-03-27 at 23.51.40.jpg"]
     }

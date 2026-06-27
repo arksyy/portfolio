@@ -20,7 +20,7 @@ export function Terminal() {
 
   const getOutputHtml = useCallback(
     (cmd: string): string => {
-      const projects = ["camplo", "canopia", "crm", "site-delajoie", "bram"] as const;
+      const projects = ["tekio", "camplo", "canopia", "crm", "site-delajoie", "bram"] as const;
       const items = t.raw("Experience.items") as Array<{
         date: string;
         role: string;

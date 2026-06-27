@@ -6,6 +6,15 @@
   },
   "Projects": {
     "heading": "projets",
+    "tekio": {
+      "name": "tekio",
+      "description": "studio logiciel cofondé à québec: automatisations, crm et sites web sur mesure, du concept au déploiement",
+      "year": "2026",
+      "month": "juin",
+      "url": "https://tekio.ca",
+      "favicon": "/images/tekio/favicon.png",
+      "images": []
+    },
     "camplo": {
       "name": "camplo",
       "description": "agence spécialisée dans la création de sites web et crm pour campings",
@@ -55,8 +64,14 @@
     "heading": "expérience",
     "items": [
       {
-        "date": "depuis mars 2026",
-        "role": "développeur full-stack",
+        "date": "depuis juin 2026",
+        "role": "cofondateur",
+        "place": "tekio — québec, qc",
+        "description": "cofondateur d'un studio logiciel: automatisations, crm et sites web sur mesure, du concept au déploiement"
+      },
+      {
+        "date": "mars 2026 – juin 2026",
+        "role": "développeur étudiant",
         "place": "régie de l'assurance maladie du québec — québec, qc",
         "description": "développement et maintenance d'applications web, conception d'api et d'interfaces, méthodologie agile"
       }

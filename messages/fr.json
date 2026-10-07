@@ -6,6 +6,15 @@
   },
   "Projects": {
     "heading": "projets",
+    "aurore": {
+      "name": "aurore",
+      "description": "boutique en ligne de pilates connectée à shopify, avec un studio de cours vidéo et un espace client",
+      "year": "2026",
+      "month": "août",
+      "url": "https://aurore-qc.ca",
+      "favicon": "/images/aurore/favicon.png",
+      "images": ["/images/aurore/accueil.png", "/images/aurore/produits.png", "/images/aurore/studio.png", "/images/aurore/faq.png"]
+    },
     "tekio": {
       "name": "tekio",
       "description": "studio logiciel cofondé à québec: automatisations, crm et sites web sur mesure, du concept au déploiement",
@@ -13,7 +22,7 @@
       "month": "juin",
       "url": "https://tekio.ca",
       "favicon": "/images/tekio/favicon.png",
-      "images": []
+      "images": ["/images/tekio/projets.png", "/images/tekio/approche.png", "/images/tekio/contact.png", "/images/tekio/confidentialite.png"]
     },
     "camplo": {
       "name": "camplo",
@@ -63,6 +72,11 @@
   "Experience": {
     "heading": "expérience",
     "items": [
+      {
+        "date": "depuis septembre 2026",
+        "role": "stagiaire",
+        "place": "realsync — québec, qc"
+      },
       {
         "date": "depuis juin 2026",
         "role": "cofondateur",

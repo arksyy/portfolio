@@ -1,6 +1,7 @@
 import createMiddleware from "next-intl/middleware";
 import { routing } from "./i18n/routing";
 
+// Keep Edge middleware: the Cloudflare adapter does not support Node.js proxy.ts.
 export default createMiddleware(routing);
 
 export const config = {
